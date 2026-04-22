@@ -48,46 +48,45 @@ body {
     outline: none;
 }
 
-.section-tienda{
-    display: flex;
-    flex-direction: column; /* Alinea los elementos en vertical */
-    align-items: center;    /* Centra todo horizontalmente */
-    text-align: center;     /* Centra el texto del párrafo */
-    padding: 20px;
-    gap: 20px;              /* Crea un espacio uniforme entre imágenes y texto */
-}
-.section-tienda img {
-    display: block;         /* Elimina espacios extra debajo de la imagen */
-    max-width: 100%;        /* Asegura que no se salga en pantallas pequeñas */
-    height: auto;           /* Mantiene la proporción original */
-    border-radius: 8px;     /* Opcional: para que se vea más moderno */
-}    
-
-
-
-
-
-
-nav {
+.nav-tienda {
     background-color: white;
     color: black;
     padding-top: 7px;
     padding-bottom: 7px;
     text-align: center;
+    font-weight: bold;
 }
-a {
+.nav-tienda a {
     color: black;
     text-decoration: none;
     margin: 25px;
     font-size: 15px;
 }
 
-h2{
+.section-tienda img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}    
+
+table.table-tienda {
+    width: auto; /* Cambiado de 100% a auto para reducir el espacio */
+    border-collapse: collapse;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    margin: auto; /* Centra la tabla horizontalmente */
+}
+
+.table-tienda td {
     text-align: center;
-    color: blue;
-    font-family: 'Arial', sans-serif;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    max-width: 200px;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #ccc; /* Añadido para mantener los bordes visibles */
+}
+
+/* Opcional: para que los títulos no ocupen tanto espacio vertical */
+.table-tienda h3, .table-tienda h4 {
+    margin: 5px 0;
 }
 
 footer {

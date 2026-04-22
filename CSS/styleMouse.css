@@ -85,11 +85,6 @@ table.table-productos {
 }
 
 
-
-
-
-
-
 /*NO TOCAR*/
 footer {
     background-color: #333;
@@ -97,6 +92,6 @@ footer {
     text-align: center;
     padding: 10px;
     margin-bottom: 0;
-    margin-top: 700px;
+    margin-top: 25px;
     
 }
