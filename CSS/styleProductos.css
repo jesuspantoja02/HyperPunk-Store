@@ -55,6 +55,7 @@ body {
     padding-top: 7px;
     padding-bottom: 7px;
     text-align: center;
+    font-weight: bold;
 }
 .nav-productos a {
     color: black;
