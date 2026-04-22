@@ -66,10 +66,12 @@ body {
 }    
 
 table.table-tienda {
+    border: none;
     width: auto; /* Cambiado de 100% a auto para reducir el espacio */
-    border-collapse: collapse;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    border-collapse: separate;
+    box-shadow: 0 5px 5px rgb(0,0,0,0.2);
     margin: auto; /* Centra la tabla horizontalmente */
+    border-spacing: 25px 20px; /* Añadido para mantener el espacio entre celdas */
 }
 
 .table-tienda td {
@@ -77,7 +79,7 @@ table.table-tienda {
     max-width: 200px;
     font-weight: bold;
     padding: 10px;
-    border: 1px solid #ccc; /* Añadido para mantener los bordes visibles */
+    border: 1px solid; /* Añadido para mantener los bordes visibles */
 }
 
 .table-tienda caption {
@@ -97,6 +99,6 @@ footer {
     text-align: center;
     padding: 10px;
     margin-bottom: 0;
-    margin-top: 700px;
+    margin-top: 25px;
     
 }

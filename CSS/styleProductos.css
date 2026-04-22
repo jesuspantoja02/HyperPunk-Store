@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 /* Contenedor del título + buscador */
@@ -48,14 +49,14 @@ body {
     outline: none;
 }
 
-nav {
+.nav-productos {
     background-color: white;
     color: black;
     padding-top: 7px;
     padding-bottom: 7px;
     text-align: center;
 }
-a {
+.nav-productos a {
     color: black;
     text-decoration: none;
     margin: 25px;
