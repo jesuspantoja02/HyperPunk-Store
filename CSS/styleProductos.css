@@ -3,12 +3,12 @@ body {
 }
 
 /* Contenedor del título + buscador */
-.header-tienda {
+.header-productos {
     font-family: Arial, sans-serif;
 }
 
 /* Barra superior */
-.header-tienda h3 {
+.header-productos h3 {
     margin: 0;
     padding: 8px;
     background: #2d7be5;
@@ -18,7 +18,7 @@ body {
 }
 
 /* Contenedor principal */
-.header-tienda div {
+.header-productos div {
     background: black;
     display: flex;
     align-items: center;
@@ -27,18 +27,18 @@ body {
 }
 
 /* Logo */
-.header-tienda h1 {
+.header-productos h1 {
     margin: 0;
     color: white;
     font-size: 32px;
 }
 
 /* Buscador */
-.header-tienda form {
+.header-productos form {
     flex: 1;
 }
 
-.header-tienda input {
+.header-productos input {
     width: 50%;
     padding: 12px 20px;
     border-radius: 8px;
@@ -65,25 +65,39 @@ a {
 /* PEGAR LO QUE HACES MODIFICACIONES DE DISEÑO JEREMY*/
 /* Quitamos el 'table' del final porque la clase ya es la tabla */
 table.table-productos {
-    width: auto; /* Cambiado de 100% a auto para reducir el espacio */
-    border-collapse: collapse;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-    margin-left: auto;   /* Asegura que esté a la izquierda */
-    margin-right: 50px; /* Espacio a la derecha */
+    border: none; /* Esto elimina cualquier borde exterior de la tabla */
+    border-collapse: separate;
+    border-spacing: 50px 10px;
+    width: auto; /* Ajusta el ancho automáticamente al contenido */
+    margin-left: 0; /* Alinea a la izquierda */
+    margin: auto; /* Centra la tabla horizontalmente */
 }
 
 .table-productos td {
+    border: solid; /* Borde gris claro para cada celda */
     text-align: center;
-    max-width: 200px;
+    
     font-weight: bold;
-    padding: 10px;
-    border: 1px solid #ccc; /* Añadido para mantener los bordes visibles */
+    padding: 10px; /* Más padding para que la tarjeta se vea mejor */
+    border-radius: 3px; /* Bordes redondeados para estilo moderno */
+}
+.table-productos a {
+    margin-top: 10px;
+    margin: auto;
+    color: black;
+    text-decoration: none;
 }
 
 /* Opcional: para que los títulos no ocupen tanto espacio vertical */
 .table-productos h3, .table-productos h4 {
     margin: 5px 0;
 }
+
+section h1{
+    text-align: center;
+    font-size: 25px;
+}
+
 
 
 
@@ -98,6 +112,6 @@ footer {
     text-align: center;
     padding: 10px;
     margin-bottom: 0;
-    margin-top: 700px;
+    margin-top: 25px;
     
 }

@@ -48,7 +48,20 @@ body {
     outline: none;
 }
 
-
+.section-tienda{
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en vertical */
+    align-items: center;    /* Centra todo horizontalmente */
+    text-align: center;     /* Centra el texto del párrafo */
+    padding: 20px;
+    gap: 20px;              /* Crea un espacio uniforme entre imágenes y texto */
+}
+.section-tienda img {
+    display: block;         /* Elimina espacios extra debajo de la imagen */
+    max-width: 100%;        /* Asegura que no se salga en pantallas pequeñas */
+    height: auto;           /* Mantiene la proporción original */
+    border-radius: 8px;     /* Opcional: para que se vea más moderno */
+}    
 
 
 
