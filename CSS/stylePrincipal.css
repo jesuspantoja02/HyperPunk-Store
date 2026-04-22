@@ -1,9 +1,5 @@
 body {
     margin: 0;
-}
-
-/* Contenedor del título + buscador */
-.header-tienda {
     font-family: Arial, sans-serif;
 }
 
@@ -84,7 +80,13 @@ table.table-tienda {
     border: 1px solid #ccc; /* Añadido para mantener los bordes visibles */
 }
 
-/* Opcional: para que los títulos no ocupen tanto espacio vertical */
+.table-tienda caption {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
 .table-tienda h3, .table-tienda h4 {
     margin: 5px 0;
 }
