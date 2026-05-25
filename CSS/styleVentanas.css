@@ -35,7 +35,7 @@ body {
 }
 
 .header-tienda input {
-    width: 50%;
+    width: 90%;
     padding: 12px 20px;
     border-radius: 8px;
     border: none;
@@ -43,6 +43,35 @@ body {
     color: white;
     outline: none;
 }
+
+.header-tienda ul {
+    font-size: 20px;
+    color: white;
+    list-style: none; /* Quita los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex;    /* Pone las listas una al lado de la otra */
+    gap: 50px;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+.header-tienda a {
+    color: #3498db; /* Azul para el link de iniciar sesión */
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.header-tienda p {
+    font-size: 18px;
+    margin: 5px 0 0 0; /* Espacio pequeño arriba del número */
+    color: #fff;
+}
+
+
+
+
 
 .nav-tienda {
     background-color: white;
