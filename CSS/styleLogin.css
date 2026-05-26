@@ -91,9 +91,9 @@ body {
 }
 
 .form-box {
-    width: 300px;
-    padding: 20px;
-    background: #ffffff;
+    width: auto;
+    padding: 50px;
+    background: #606B82;
     border: 1px solid #000;
 }
 
@@ -107,9 +107,9 @@ label {
 }
 
 input {
-    width: 100%;
+    width: 95%;
     padding: 6px;
-    margin: 5px 0 10px 0;
+    margin: 5px  10px ;
     border: 1px solid #000;
 }
 
@@ -119,13 +119,34 @@ input {
     align-items: center;
 }
 
-.bottom p {
+p{
+    text-align: center;
     font-size: 12px;
 }
 
 button {
     padding: 5px 10px;
     border: 1px solid #000;
-    background: #ddd;
+    background: white;
+    color: black;
     cursor: pointer;
+    display: block;
+    margin: 10px auto;
+    transition: 2s;
+}
+
+button:hover{
+    background: #A8FFB8;
+    color: black;
+    transition: 0.5s;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 0;
+    margin-top: 25px;
+    
 }

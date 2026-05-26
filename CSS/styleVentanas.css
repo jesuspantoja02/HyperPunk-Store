@@ -110,6 +110,16 @@ table.table-ventanas {
     margin: 5px 0;
 }
 
+/* Estilo para la transición de las imágenes */
+.imagen {
+    width: 200px;
+    height: 200px;
+    transition: transform 0.5s ease;
+}
+
+.imagen:hover {
+    transform: scale(1.1);
+}
 
 /*NO TOCAR*/
 footer {

@@ -114,6 +114,17 @@ table.table-productos {
     margin: 5px 0;
 }
 
+/* Estilo para la transición de las imágenes */
+.imagen {
+    width: 150px;
+    height: 150px;
+    transition: transform 0.5s ease;
+}
+
+.imagen:hover {
+    transform: scale(1.1);
+}
+
 section h1{
     text-align: center;
     font-size: 25px;

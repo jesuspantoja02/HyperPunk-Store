@@ -83,13 +83,31 @@ body {
     text-decoration: none;
     margin: 25px;
     font-size: 15px;
+    padding: 7px;
+}
+
+.nav-tienda a:hover{
+    background: #5a818f;
+    color:white;
 }
 
 .section-tienda img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}    
+}  
+
+/* Estilo para la transición de las imágenes */
+.imagen {
+    width: 200px;
+    height: 200px;
+    transition: transform 0.5s ease;
+}
+
+.imagen:hover {
+    transform: scale(1.1);
+}
+
 
 table.table-tienda {
     border: none;
@@ -115,8 +133,19 @@ table.table-tienda {
     text-align: left;
 }
 
+.table-tienda p {
+    color: red;
+    font-size: 15px;
+    
+}
+
 .table-tienda h3, .table-tienda h4 {
     margin: 5px 0;
+}
+
+.table-tienda h3:hover, .table-tienda h4:hover {
+    color: rgb(8, 112, 172);
+    transition: 0.3s;
 }
 
 footer {
