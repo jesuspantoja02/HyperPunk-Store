@@ -69,10 +69,6 @@ body {
     color: #fff;
 }
 
-
-
-
-
 .nav-tienda {
     background-color: white;
     color: black;
@@ -86,6 +82,12 @@ body {
     text-decoration: none;
     margin: 25px;
     font-size: 15px;
+    padding: 7px;
+}
+
+.nav-tienda a:hover{
+    background: #5a818f;
+    color:white;
 }
 
 /* PEGAR LO QUE HACES MODIFICACIONES DE DISEÑO JEREMY*/

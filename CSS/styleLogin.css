@@ -91,25 +91,36 @@ body {
 }
 
 .form-box {
-    width: auto;
-    padding: 50px;
+    width: 500px;
+    padding: 50px 3px;
     background: #606B82;
     border: 1px solid #000;
+    text-align: center;
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+    margin-top: -20px;
+    font-size: 24px;
 }
 
 label {
     font-size: 13px;
+    
+    
+    display: block;
+    margin-top: 15px;
+    text-align: left;
+    margin-left: 10%;
 }
 
 input {
-    width: 95%;
+    width: 80%;
+    height: 15px;
     padding: 6px;
-    margin: 5px  10px ;
+    display: block;
+    margin: 5px auto ;
     border: 1px solid #000;
 }
 
@@ -125,14 +136,15 @@ p{
 }
 
 button {
-    padding: 5px 10px;
+    padding: 10px 40px;
     border: 1px solid #000;
     background: white;
     color: black;
     cursor: pointer;
     display: block;
-    margin: 10px auto;
+    margin: 30px auto 10px auto;
     transition: 2s;
+    font-size: 16px;
 }
 
 button:hover{
