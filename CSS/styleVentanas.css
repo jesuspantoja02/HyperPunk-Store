@@ -1,6 +1,12 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 /* Barra superior */
@@ -132,4 +138,43 @@ footer {
     margin-bottom: 0;
     margin-top: 25px;
     
+}
+
+/* ================= RESPONSIVE VENTANAS ================= */
+
+@media (max-width: 992px) {
+
+    .header-tienda div {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-tienda form,
+    .header-tienda input {
+        width: 100%;
+    }
+
+    .header-tienda ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .modal,
+    .ventana {
+        width: 95%;
+        max-width: 400px;
+    }
+
+    .nav-tienda {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-tienda a {
+        margin: 10px 0;
+    }
 }

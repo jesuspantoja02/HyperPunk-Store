@@ -1,6 +1,12 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 /* Barra superior */
@@ -159,4 +165,47 @@ footer {
     margin-bottom: 0;
     margin-top: 25px;
     
+}
+
+/* ================= RESPONSIVE REGISTRO ================= */
+
+@media (max-width: 992px) {
+
+    .header-tienda div {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-tienda form,
+    .header-tienda input {
+        width: 100%;
+    }
+
+    .header-tienda ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    form {
+        width: 95%;
+        margin: auto;
+    }
+
+    input,
+    button {
+        width: 100%;
+    }
+
+    .nav-tienda {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-tienda a {
+        margin: 10px 0;
+    }
 }

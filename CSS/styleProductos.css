@@ -1,6 +1,12 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 .header-tienda h3 {
@@ -17,13 +23,14 @@ body {
     background: black;
     display: flex;
     align-items: center;
-    gap: 40px;
+    justify-content: space-between;
+    gap: 20px;
     padding: 20px 40px;
+    flex-wrap: wrap;
 }
 
 /* Logo */
 .header-tienda h1 {
-    margin: 0;
     color: white;
     font-size: 32px;
 }
@@ -31,6 +38,7 @@ body {
 /* Buscador */
 .header-tienda form {
     flex: 1;
+    min-width: 250px;
 }
 
 .header-tienda input {
@@ -44,16 +52,14 @@ body {
 }
 
 .header-tienda ul {
-    font-size: 20px;
+    font-size: 18px;
     color: white;
-    list-style: none; /* Quita los puntos de la lista */
-    margin: 0;
-    padding: 0;
-    display: flex;    /* Pone las listas una al lado de la otra */
-    gap: 50px;
+    list-style: none;
+    display: flex;
+    gap: 30px;
     text-align: center;
     font-weight: bold;
-    margin-right: 50px;
+    flex-wrap: wrap;
 }
 
 .header-tienda a {
@@ -63,9 +69,9 @@ body {
 }
 
 .header-tienda p {
-    font-size: 18px;
-    margin: 5px 0 0 0; /* Espacio pequeño arriba del número */
-    color: #fff;
+    font-size: 15px;
+    margin-top: 5px;
+    color: white;
 }
 
 .nav-productos {
@@ -152,4 +158,48 @@ footer {
     margin-bottom: 0;
     margin-top: 25px;
     
+}
+
+/* ================= RESPONSIVE PRODUCTOS ================= */
+
+@media (max-width: 992px) {
+
+    .header-tienda div {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-tienda form,
+    .header-tienda input {
+        width: 100%;
+    }
+
+    .header-tienda ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .nav-productos {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-productos a {
+        margin: 0;
+    }
+
+    .productos-contenedor {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-producto {
+        width: 90%;
+    }
 }

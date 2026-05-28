@@ -1,11 +1,16 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 /* Barra superior */
 .header-tienda h3 {
-    margin: 0;
     padding: 8px;
     background: #2d7be5;
     color: white;
@@ -18,13 +23,14 @@ body {
     background: black;
     display: flex;
     align-items: center;
-    gap: 40px;
+    justify-content: space-between;
+    gap: 20px;
     padding: 20px 40px;
+    flex-wrap: wrap;
 }
 
 /* Logo */
 .header-tienda h1 {
-    margin: 0;
     color: white;
     font-size: 32px;
 }
@@ -32,10 +38,11 @@ body {
 /* Buscador */
 .header-tienda form {
     flex: 1;
+    min-width: 250px;
 }
 
 .header-tienda input {
-    width: 90%;
+    width: 100%;
     padding: 12px 20px;
     border-radius: 8px;
     border: none;
@@ -44,164 +51,255 @@ body {
     outline: none;
 }
 
+/* Lista */
 .header-tienda ul {
-    font-size: 20px;
+    font-size: 18px;
     color: white;
-    list-style: none; /* Quita los puntos de la lista */
-    margin: 0;
-    padding: 0;
-    display: flex;    /* Pone las listas una al lado de la otra */
-    gap: 50px;
+    list-style: none;
+    display: flex;
+    gap: 30px;
     text-align: center;
     font-weight: bold;
-    margin-right: 50px;
+    flex-wrap: wrap;
 }
 
+
 .header-tienda a {
-    color: #3498db; /* Azul para el link de iniciar sesión */
+    color: #3498db;
     text-decoration: none;
     font-size: 15px;
 }
 
 .header-tienda p {
-    font-size: 18px;
-    margin: 5px 0 0 0; /* Espacio pequeño arriba del número */
-    color: #fff;
+    font-size: 15px;
+    margin-top: 5px;
+    color: white;
 }
 
-
+/* Navegación */
 .nav-tienda {
     background-color: white;
-    color: black;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
     font-weight: bold;
 }
+
 .nav-tienda a {
     color: black;
     text-decoration: none;
-    margin: 25px;
     font-size: 15px;
-    padding: 7px;
-}
-
-.nav-tienda a:hover{
-    background: #5a818f;
-    color:white;
-}
-
-/* Estilo para la transición de las imágenes */
-.imagen {
-    width: 200px;
-    height: 200px;
-    transition: transform 0.5s ease;
-}
-
-.imagen:hover {
-    transform: scale(1.1);
-}
-
-
-table.table-tienda {
-    border: none;
-    width: auto; /* Cambiado de 100% a auto para reducir el espacio */
-    border-collapse: separate;
-    box-shadow: 0 5px 5px rgb(0,0,0,0.2);
-    margin: auto; /* Centra la tabla horizontalmente */
-    border-spacing: 25px 20px; /* Añadido para mantener el espacio entre celdas */
-}
-
-.table-tienda td {
-    text-align: center;
-    max-width: 200px;
-    font-weight: bold;
-    padding: 10px;
-    border: 1px solid; /* Añadido para mantener los bordes visibles */
-}
-
-.table-tienda caption {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: left;
-}
-
-.table-tienda p {
-    color: red;
-    font-size: 15px;
-    
-}
-
-.table-tienda h3, .table-tienda h4 {
-    margin: 5px 0;
-}
-
-.table-tienda h3:hover, .table-tienda h4:hover {
-    color: rgb(8, 112, 172);
+    padding: 10px 15px;
+    border-radius: 6px;
     transition: 0.3s;
 }
 
-footer {
-    background-color: #333;
+.nav-tienda a:hover {
+    background: #5a818f;
     color: white;
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 0;
-    margin-top: 25px;
-    
 }
 
-.video-section {
-    width: 100%;
-    text-align: center;
-    margin: 20px 0;
-}
-
-.video-section video {
-    width: 80%;
-    height: 500px;
-}
-
-
-/* --- NUEVA ANIMACIÓN PARA EL BANNER DESLIZANTE --- */
-
+/* Banner */
 .section-tienda {
     width: 100%;
     height: 350px;
-    overflow: hidden;   /* Clave para congelar la pantalla y ocultar las otras dos imágenes */
+    overflow: hidden;
     position: relative;
 }
 
 .slider-contenedor {
     display: flex;
-    width: 300vw;       /* 300vw significa el ancho de 3 pantallas completas juntas */
+    width: 300%;
     height: 100%;
     animation: deslizarBanner 9s infinite ease-in-out;
 }
 
 .slider-contenedor img {
-    width: 100vw;       /* Cada imagen independiente ocupa exactamente TODA tu pantalla */
+    width: 100%;
     height: 100%;
-    object-fit: cover;  /* Hace que la imagen llene todo el recuadro sin deformarse */
+    object-fit: cover;
 }
 
-/* Animación calculada por pantallas completas (vw) para que la 3ra tape todo el fondo */
 @keyframes deslizarBanner {
-    /* Muestra la 1ra imagen independiente */
     0%, 28% {
         transform: translateX(0);
     }
-    /* Se desliza y muestra la 2da imagen independiente */
+
     33%, 61% {
-        transform: translateX(-100vw); /* Se mueve exactamente una pantalla a la izquierda */
+        transform: translateX(-100vw);
     }
-    /* Se desliza y muestra la 3ra imagen independiente (llena todo el espacio) */
+
     66%, 94% {
-        transform: translateX(-200vw); /* Se mueve dos pantallas a la izquierda */
+        transform: translateX(-200vw);
     }
-    /* Regresa al inicio */
+
     100% {
         transform: translateX(0);
+    }
+}
+
+/* Productos */
+.table-tienda {
+    width: 95%;
+    margin: 30px auto;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+.table-tienda caption {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.table-tienda tbody,
+.table-tienda tr {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.table-tienda td {
+    width: 220px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.table-tienda td:hover {
+    transform: translateY(-5px);
+}
+
+.imagen {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.imagen:hover {
+    transform: scale(1.05);
+}
+
+.table-tienda h3,
+.table-tienda h4 {
+    margin: 8px 0;
+}
+
+.table-tienda h4 {
+    font-size: 15px;
+}
+
+.table-tienda p {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Video */
+.video-section {
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.video-section video {
+    width: 90%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+
+    .header-tienda div {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-tienda form {
+        width: 100%;
+    }
+
+    .header-tienda ul {
+        justify-content: center;
+    }
+
+    .section-tienda {
+        height: 250px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+
+    .header-tienda h1 {
+        font-size: 24px;
+    }
+
+    .header-tienda ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-tienda {
+        flex-direction: column;
+    }
+
+    .nav-tienda a {
+        width: 100%;
+        text-align: center;
+    }
+    .section-tienda {
+        height: 180px;
+    }
+
+    .table-tienda td {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .table-tienda caption {
+        font-size: 22px;
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+
+    .header-tienda div {
+        padding: 20px;
+    }
+
+    .header-tienda h1 {
+        font-size: 20px;
+    }
+
+    .header-tienda input {
+        padding: 10px;
+    }
+
+    .section-tienda {
+        height: 150px;
     }
 }
