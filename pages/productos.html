@@ -1,89 +1,113 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Catálogo completo de HyperPunk Store: laptops, monitores, mouse, teclados, audífonos y micrófonos gaming en Perú." />
+    <meta name="keywords" content="productos gaming, catálogo, periféricos, HyperPunk Store" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://hyperpunk-store.github.io/pages/productos.html" />
+    <meta property="og:title" content="Productos | HyperPunk Store" />
+    <meta property="og:description" content="Explora todas las colecciones de periféricos gaming." />
+    <meta property="og:locale" content="es_PE" />
     <link rel="stylesheet" href="../CSS/styleProductos.css" />
-    <title>Bienvenidos</title>
+    <title>Productos | HyperPunk Store</title>
 </head>
 
 <body>
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido</a>
+
     <header class="header-tienda">
         <h3>¡Explora nuestra tienda, con tus marcas favoritas!</h3>
         <div>
-            <h1>HyperPunk Store</h1>
-            <form>
-                <input type="text" placeholder="Buscar...">
+            <h1><a href="../index.html" aria-label="HyperPunk Store - Inicio">HyperPunk Store</a></h1>
+            <form role="search" aria-label="Buscar productos">
+                <input type="search" name="q" placeholder="Buscar productos..." aria-label="Buscar productos">
             </form>
             <ul>
-                <li>Contáctanos<p><a href="https://wa.me/933733579" target="_blank">987654321</a></p></li>
-                <li>Mi cuenta<p><a href="/pages/login.html">Inicia Sesión</a></p></li>
+                <li>Contáctanos<p><a href="https://wa.me/51933733579" target="_blank" rel="noopener noreferrer">933 733 579</a></p></li>
+                <li>Mi cuenta<p><a href="login.html">Inicia Sesión</a></p></li>
             </ul>
         </div>
     </header>
 
-    <nav class="nav-productos">
-        <a href="../index.html">INICIO</a>
-        <a href="/pages/productos.html">PRODUCTOS</a>
-        <a href="/pages/mouse.html">MOUSE</a>
-        <a href="/pages/teclado.html">TECLADOS</a>
-        <a href="/pages/audifonos.html">AUDIFONOS</a>
-        <a href="/pages/microfonos.html">MICROFONOS</a>
-        <a href="/pages/pantallas.html">PANTALLAS</a>
-        <a href="/pages/laptop.html">LAPTOPS</a>
-    </nav>
-    <hr />
-    <section>
-        <h1>TODAS LAS COLECCIONES</h1>
-    </section>
-    <table border="1" class="table-productos">
-        <tbody>
-            <tr>
-                <td>
-                    <a href="laptop.html">
-                        <img src="../image/image_laptop/laptop.png" alt="Laptop" class="imagen">
-                        <h4>Laptops</h4>
-                    </a>
-                </td>
-                <td>
-                    <a href="pantallas.html">
-                        <img src="../image/image_screens/monitor.jpg" alt="Monitor" class="imagen">
-                        <h4>Monitores</h4>
-                    </a>
-                </td>
-                <td>
-                    <a href="mouse.html">
-                        <img src="../image/image_mouse/mouse.jpg" alt="Mouse" class="imagen">
-                        <h4>Mouse</h4>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="teclado.html">
-                        <img src="../image/image_keyboard/teclado.jpg" alt="Teclado" class="imagen">
-                        <h4>Teclados</h4>
-                    </a>
-                </td>
-                <td>
-                    <a href="audifonos.html">
-                        <img src="../image/image_earphone/audifonos.png" alt="Audifono" class="imagen">
-                        <h4>Audifonos</h4>
-                    </a>
-                </td>
-                <td>
-                    <a href="microfonos.html">
-                        <img src="../image/image_microphone/microfono.jpg" alt="Micrófono" class="imagen">
-                        <h4>Micrófonos</h4>
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="nav-wrapper">
+        <button class="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-principal">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-productos" id="nav-principal" aria-label="Navegación principal">
+            <a href="../index.html">INICIO</a>
+            <a href="productos.html">PRODUCTOS</a>
+            <a href="mouse.html">MOUSE</a>
+            <a href="teclado.html">TECLADOS</a>
+            <a href="audifonos.html">AUDÍFONOS</a>
+            <a href="microfonos.html">MICRÓFONOS</a>
+            <a href="pantallas.html">PANTALLAS</a>
+            <a href="laptop.html">LAPTOPS</a>
+        </nav>
+    </div>
+
+    <main id="contenido-principal">
+        <section aria-labelledby="colecciones">
+            <h1 id="colecciones" class="page-title">TODAS LAS COLECCIONES</h1>
+            <table class="table-productos">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="laptop.html">
+                                <img src="../image/image_laptop/laptop.png" alt="Categoría Laptops gaming" class="imagen" width="150" height="150" loading="lazy">
+                                <h4>Laptops</h4>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="pantallas.html">
+                                <img src="../image/image_screens/monitor.jpg" alt="Categoría Monitores gaming" class="imagen" width="150" height="150" loading="lazy">
+                                <h4>Monitores</h4>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="mouse.html">
+                                <img src="../image/image_mouse/mouse.jpg" alt="Categoría Mouse gaming" class="imagen" width="150" height="150" loading="lazy">
+                                <h4>Mouse</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="teclado.html">
+                                <img src="../image/image_keyboard/teclado.jpg" alt="Categoría Teclados gaming" class="imagen" width="150" height="150" loading="lazy">
+                                <h4>Teclados</h4>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="audifonos.html">
+                                <img src="../image/image_earphone/audifonos.png" alt="Categoría Audífonos gaming" class="imagen" width="150" height="150" loading="lazy">
+                                <h4>Audífonos</h4>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="microfonos.html">
+                                <img src="../image/image_microphone/microfono.jpg" alt="Categoría Micrófonos streaming" class="imagen" width="150" height="150" loading="lazy">
+                                <h4>Micrófonos</h4>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
     <footer>
+        <nav class="footer-links" aria-label="Enlaces del pie de página">
+            <a href="productos.html">Productos</a>
+            <a href="login.html">Mi cuenta</a>
+            <a href="https://wa.me/51933733579" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </nav>
         <p>&copy; 2026 HyperPunk Store. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="../JS/main.js" defer></script>
 </body>
 
 </html>

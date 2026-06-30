@@ -1,305 +1,54 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('base.css');
 
-body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-}
-
-/* Barra superior */
-.header-tienda h3 {
-    padding: 8px;
-    background: #2d7be5;
-    color: white;
-    text-align: center;
-    font-size: 14px;
-}
-
-/* Contenedor principal */
-.header-tienda div {
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 40px;
-    flex-wrap: wrap;
-}
-
-/* Logo */
-.header-tienda h1 {
-    color: white;
-    font-size: 32px;
-}
-
-/* Buscador */
-.header-tienda form {
-    flex: 1;
-    min-width: 250px;
-}
-
-.header-tienda input {
-    width: 100%;
-    padding: 12px 20px;
-    border-radius: 8px;
-    border: none;
-    background: #2c2c2c;
-    color: white;
-    outline: none;
-}
-
-/* Lista */
-.header-tienda ul {
-    font-size: 18px;
-    color: white;
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    text-align: center;
-    font-weight: bold;
-    flex-wrap: wrap;
-}
-
-
-.header-tienda a {
-    color: #3498db;
-    text-decoration: none;
-    font-size: 15px;
-}
-
-.header-tienda p {
-    font-size: 15px;
-    margin-top: 5px;
-    color: white;
-}
-
-/* Navegación */
-.nav-tienda {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
-    font-weight: bold;
-}
-
-.nav-tienda a {
-    color: black;
-    text-decoration: none;
-    font-size: 15px;
-    padding: 10px 15px;
-    border-radius: 6px;
-    transition: 0.3s;
-}
-
-.nav-tienda a:hover {
-    background: #5a818f;
-    color: white;
-}
-
-/* Banner */
+/* Banner / Slider */
 .section-tienda {
     width: 100%;
-    height: 350px;
+    height: clamp(200px, 35vw, 400px);
     overflow: hidden;
     position: relative;
+    background: #0d1b2a;
 }
 
 .slider-contenedor {
     display: flex;
-    width: 300%;
     height: 100%;
-    animation: deslizarBanner 9s infinite ease-in-out;
+    animation: deslizarBanner 12s infinite ease-in-out;
 }
 
 .slider-contenedor img {
+    flex: 0 0 100%;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+    background: #0d1b2a;
 }
 
 @keyframes deslizarBanner {
-    0%, 28% {
-        transform: translateX(0);
-    }
-
-    33%, 61% {
-        transform: translateX(-100vw);
-    }
-
-    66%, 94% {
-        transform: translateX(-200vw);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-/* Productos */
-.table-tienda {
-    width: 95%;
-    margin: 30px auto;
-    border-collapse: separate;
-    border-spacing: 20px;
-}
-
-.table-tienda caption {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.table-tienda tbody,
-.table-tienda tr {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.table-tienda td {
-    width: 220px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    text-align: center;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.table-tienda td:hover {
-    transform: translateY(-5px);
-}
-
-.imagen {
-    width: 100%;
-    max-width: 180px;
-    height: auto;
-    transition: transform 0.5s ease;
-}
-
-.imagen:hover {
-    transform: scale(1.05);
-}
-
-.table-tienda h3,
-.table-tienda h4 {
-    margin: 8px 0;
-}
-
-.table-tienda h4 {
-    font-size: 15px;
-}
-
-.table-tienda p {
-    color: red;
-    font-weight: bold;
-    margin-top: 10px;
+    0%, 28% { transform: translateX(0); }
+    33%, 61% { transform: translateX(-100%); }
+    66%, 94% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
 }
 
 /* Video */
 .video-section {
     width: 100%;
     text-align: center;
-    margin: 30px 0;
+    padding: 30px 16px;
 }
 
 .video-section video {
-    width: 90%;
-    max-width: 1000px;
+    width: min(95%, 1000px);
     height: auto;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
 }
 
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 30px;
-}
-
-/* ================= RESPONSIVE ================= */
-
-/* Tablets */
-@media (max-width: 992px) {
-
-    .header-tienda div {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .header-tienda form {
-        width: 100%;
-    }
-
-    .header-tienda ul {
-        justify-content: center;
-    }
-
-    .section-tienda {
-        height: 250px;
-    }
-}
-
-/* Celulares */
-@media (max-width: 768px) {
-
-    .header-tienda h1 {
-        font-size: 24px;
-    }
-
-    .header-tienda ul {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-tienda {
-        flex-direction: column;
-    }
-
-    .nav-tienda a {
-        width: 100%;
-        text-align: center;
-    }
-    .section-tienda {
-        height: 180px;
-    }
-
-    .table-tienda td {
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .table-tienda caption {
-        font-size: 22px;
-    }
-}
-
-/* Celulares pequeños */
-@media (max-width: 480px) {
-
-    .header-tienda div {
-        padding: 20px;
-    }
-
-    .header-tienda h1 {
-        font-size: 20px;
-    }
-
-    .header-tienda input {
-        padding: 10px;
-    }
-
-    .section-tienda {
-        height: 150px;
+@media (prefers-reduced-motion: reduce) {
+    .slider-contenedor {
+        animation: none;
+        transform: translateX(0);
     }
 }
