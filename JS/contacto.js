@@ -1,7 +1,28 @@
 /**
  * HyperPunk Store — Validación y procesamiento del formulario de contacto
- * Requisitos: captura, validación JS y visualización de datos enviados
+ * Requisitos: captura, validación JS, arrays (insertar / leer / actualizar)
+ * y bucles for / while para recorrer los datos.
  */
+
+/** Array que almacena cada envío exitoso del formulario */
+let consultasEnviadas = [];
+
+const CONTACTOS_STORAGE_KEY = 'hyperpunk_consultas';
+
+function cargarConsultas() {
+    const guardados = localStorage.getItem(CONTACTOS_STORAGE_KEY);
+    if (!guardados) return;
+
+    try {
+        consultasEnviadas = JSON.parse(guardados);
+    } catch {
+        consultasEnviadas = [];
+    }
+}
+
+function guardarConsultas() {
+    localStorage.setItem(CONTACTOS_STORAGE_KEY, JSON.stringify(consultasEnviadas));
+}
 
 function validarCampoTexto(valor, nombreCampo, minLength) {
     const texto = valor.trim();
@@ -46,9 +67,13 @@ function obtenerValorSelect(id) {
 function obtenerValoresCheckbox(formulario) {
     const checkboxes = formulario.querySelectorAll('input[type="checkbox"]');
     const valores = {};
-    checkboxes.forEach((checkbox) => {
-        valores[checkbox.name] = checkbox.checked;
-    });
+    let i = 0;
+
+    while (i < checkboxes.length) {
+        valores[checkboxes[i].name] = checkboxes[i].checked;
+        i++;
+    }
+
     return valores;
 }
 
@@ -79,7 +104,10 @@ function validarFormularioContacto(formulario) {
     const categoria = formulario.categoria;
     const terminos = formulario.terminos;
 
-    [nombre, apellidos, email, telefono, mensaje, categoria].forEach(limpiarError);
+    const campos = [nombre, apellidos, email, telefono, mensaje, categoria];
+    for (let i = 0; i < campos.length; i++) {
+        limpiarError(campos[i]);
+    }
 
     const errorNombre = validarCampoTexto(nombre.value, 'Nombre', 2);
     if (errorNombre) {
@@ -143,7 +171,11 @@ function mostrarErrores(errores) {
     if (!alerta) return;
 
     if (errores.length > 0) {
-        alerta.textContent = errores.join(' ');
+        let texto = '';
+        for (let i = 0; i < errores.length; i++) {
+            texto += errores[i] + ' ';
+        }
+        alerta.textContent = texto.trim();
         alerta.className = 'alerta-global visible error';
     } else {
         alerta.className = 'alerta-global';
@@ -174,6 +206,113 @@ function mostrarDatosEnviados(datos) {
     panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
+/**
+ * Inserción en el array: guarda la consulta al final.
+ * @returns {number} índice donde quedó guardada
+ */
+function insertarConsulta(datos) {
+    const indice = consultasEnviadas.length;
+    consultasEnviadas.push(datos);
+    guardarConsultas();
+    return indice;
+}
+
+/**
+ * Lectura por índice.
+ */
+function leerConsulta(indice) {
+    if (indice < 0 || indice >= consultasEnviadas.length) {
+        return null;
+    }
+    return consultasEnviadas[indice];
+}
+
+/**
+ * Actualización por índice: cambia el mensaje de una consulta ya guardada.
+ */
+function actualizarConsulta(indice, nuevoMensaje) {
+    if (indice < 0 || indice >= consultasEnviadas.length) {
+        return { exito: false, mensaje: 'Índice fuera de rango.' };
+    }
+
+    const texto = nuevoMensaje.trim();
+    if (texto.length < 10) {
+        return { exito: false, mensaje: 'El mensaje debe tener al menos 10 caracteres.' };
+    }
+
+    consultasEnviadas[indice].mensaje = texto;
+    guardarConsultas();
+
+    return {
+        exito: true,
+        mensaje: `Consulta en índice ${indice} actualizada.`,
+        consulta: consultasEnviadas[indice]
+    };
+}
+
+/**
+ * Recorre el array con for y pinta el historial en pantalla.
+ */
+function renderizarHistorialConsultas() {
+    const contenedor = document.getElementById('lista-historial');
+    const panel = document.getElementById('historial-consultas');
+    if (!contenedor || !panel) return;
+
+    if (consultasEnviadas.length === 0) {
+        panel.classList.add('oculto');
+        contenedor.innerHTML = '';
+        return;
+    }
+
+    panel.classList.remove('oculto');
+    let html = '';
+
+    for (let i = 0; i < consultasEnviadas.length; i++) {
+        const c = consultasEnviadas[i];
+        html += `
+            <li class="item-historial" data-indice="${i}">
+                <p><strong>#${i}</strong> — ${c.nombre} ${c.apellidos} (${c.email})</p>
+                <p>${c.categoria} · ${c.metodoContacto}</p>
+                <p class="mensaje-historial">${c.mensaje}</p>
+                <div class="acciones-historial">
+                    <input type="text" id="editar-mensaje-${i}" placeholder="Nuevo mensaje..." aria-label="Nuevo mensaje para índice ${i}">
+                    <button type="button" class="btn-actualizar" data-indice="${i}">Actualizar mensaje</button>
+                </div>
+            </li>
+        `;
+    }
+
+    contenedor.innerHTML = html;
+}
+
+function procesarActualizacionMensaje(evento) {
+    const boton = evento.target.closest('.btn-actualizar');
+    if (!boton) return;
+
+    const indice = Number(boton.getAttribute('data-indice'));
+    const input = document.getElementById(`editar-mensaje-${indice}`);
+    if (!input) return;
+
+    const resultado = actualizarConsulta(indice, input.value);
+    const alerta = document.getElementById('alerta-global');
+
+    if (!resultado.exito) {
+        if (alerta) {
+            alerta.textContent = resultado.mensaje;
+            alerta.className = 'alerta-global visible error';
+        }
+        return;
+    }
+
+    if (alerta) {
+        alerta.textContent = resultado.mensaje;
+        alerta.className = 'alerta-global visible exito';
+    }
+
+    renderizarHistorialConsultas();
+    mostrarDatosEnviados(resultado.consulta);
+}
+
 function procesarFormularioContacto(evento) {
     evento.preventDefault();
 
@@ -200,21 +339,33 @@ function procesarFormularioContacto(evento) {
         terminos: checkboxes.terminos || false
     };
 
+    const indice = insertarConsulta(datos);
+
     const alerta = document.getElementById('alerta-global');
     if (alerta) {
-        alerta.textContent = '¡Formulario enviado correctamente! Revise los datos a continuación.';
+        alerta.textContent = `¡Formulario enviado! Guardado en el índice ${indice} del arreglo.`;
         alerta.className = 'alerta-global visible exito';
     }
 
     mostrarDatosEnviados(datos);
+    renderizarHistorialConsultas();
     formulario.reset();
 
     return true;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    cargarConsultas();
+
     const formulario = document.getElementById('form-contacto');
     if (formulario) {
         formulario.addEventListener('submit', procesarFormularioContacto);
     }
+
+    const historial = document.getElementById('lista-historial');
+    if (historial) {
+        historial.addEventListener('click', procesarActualizacionMensaje);
+    }
+
+    renderizarHistorialConsultas();
 });

@@ -71,6 +71,8 @@
             <a href="pages/pantallas.html">PANTALLAS</a>
             <a href="pages/laptop.html">LAPTOPS</a>
             <a href="pages/contacto.html">CONTACTO</a>
+            <a href="pages/carrito.html">CARRITO</a>
+            <a href="pages/compras.html">MIS COMPRAS</a>
         </nav>
     </div>
 
@@ -84,41 +86,10 @@
         </section>
 
         <section aria-labelledby="nuevos-ingresos">
-            <table class="table-tienda">
+            <table class="table-tienda" data-categoria="destacados">
                 <caption id="nuevos-ingresos">NUEVOS INGRESOS</caption>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src="image/timonLogitech.png" alt="Timón Logitech G923 Driving Force con palanca de cambios" class="imagen" width="180" height="180" loading="lazy">
-                            <h3>Logitech</h3>
-                            <h4>Timón Logitech G923 Driving Force + Palanca De Cambios</h4>
-                            <p>S/ 1 679.00</p>
-                        </td>
-                        <td>
-                            <img src="image/ConsolaPs5.png" alt="Consola PS5 Edición Digital con Astro Bot y Gran Turismo 7" class="imagen" width="180" height="180" loading="lazy">
-                            <h3>Sony</h3>
-                            <h4>Consola PS5 Edición Digital Bundled con Astro Bot (GOTY 2024) + Gran Turismo 7</h4>
-                            <p>S/ 2 099.00</p>
-                        </td>
-                        <td>
-                            <img src="image/ConsolaNintendo.png" alt="Consola Nintendo Switch 2 Mario Kart World Bundle" class="imagen" width="180" height="180" loading="lazy">
-                            <h3>Nintendo</h3>
-                            <h4>Consola Nintendo Switch 2 Mario kart World Bundle</h4>
-                            <p>S/ 2 399.00</p>
-                        </td>
-                        <td>
-                            <img src="image/soporteRack.png" alt="Soporte rack brazo articulado para monitor y laptop" class="imagen" width="180" height="180" loading="lazy">
-                            <h3>Seisa</h3>
-                            <h4>Soporte Rack Brazo para Monitor y Laptop Brazo Articulado de Escritorio</h4>
-                            <p>S/ 119.00</p>
-                        </td>
-                        <td>
-                            <img src="image/impresoraEpson.png" alt="Impresora multifuncional Epson L3250" class="imagen" width="180" height="180" loading="lazy">
-                            <h3>Epson</h3>
-                            <h4>Impresora multifuncional L3250 EPSON</h4>
-                            <p>S/ 649.00</p>
-                        </td>
-                    </tr>
+                <tbody id="lista-productos">
+                    <!-- Productos e imágenes renderizados desde arreglo JS -->
                 </tbody>
             </table>
         </section>
@@ -134,6 +105,8 @@
     <footer>
         <nav class="footer-links" aria-label="Enlaces del pie de página">
             <a href="pages/productos.html">Productos</a>
+            <a href="pages/carrito.html">Carrito</a>
+            <a href="pages/compras.html">Mis compras</a>
             <a href="pages/contacto.html">Contacto</a>
             <a href="pages/login.html">Mi cuenta</a>
             <a href="https://wa.me/51933733579" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -142,6 +115,8 @@
     </footer>
 
     <script src="JS/main.js" defer></script>
+    <script src="JS/productos.js" defer></script>
+    <script src="JS/carrito.js" defer></script>
 </body>
 
 </html>

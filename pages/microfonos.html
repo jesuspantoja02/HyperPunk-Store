@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
 
 <head>
@@ -51,70 +51,10 @@
     <main id="contenido-principal">
         <section aria-label="Catálogo de micrófonos">
             <h1 class="page-title">MICRÓFONOS</h1>
-            <table class="table-ventanas">
-                <tbody>
-            <tr>
-                <td>
-                    <img src="../image/image_microphone/micrófonoHyperX.jpg" 
-                        alt="Micrófono para Streaming HyperX SoloCast USB Plug & Play Negro" class="imagen"> 
-                    <h3>Hyperx</h3>
-                    <h4> Micrófono para Streaming HyperX SoloCast USB Plug & Play Negro </h4>
-                    <p>S/ 419.00</p>
-                </td>
-                <td>
-                    <img src="../image/image_microphone/micrófonoRazerNegro.jpg"
-                        alt="  Micrófono Razer Seiren Mini USB Streaming Negro FHD " class="imagen"> 
-                    <h3>Razer</h3>
-                    <h4> Micrófono Razer Seiren Mini USB Streaming Negro FHD </h4>
-                    <p>S/ 239.00</p>
-                </td>
-                <td>
-                    <img src="../image/image_microphone/microfonoraizerBlanco.jpg" class="imagen"
-                        alt="Razer Seiren Mini USB Streaming Microphone Streaming Blanco y Estuche">
-                    <h3></h3>
-                    <h4> Razer Seiren Mini USB Streaming Microphone Streaming Blanco y Estuche  </h4>
-                    <p> S/ 239.00 </p>
-                </td>
-                <td>
-                    <img src="../image/image_microphone/micrófonoFifine.jpg" class="imagen" 
-                        alt="Micrófono Gamer Fifine A6T BLACK Soporte de brazo">
-                    <h3>Fifine</h3>
-                    <h4>Micrófono Gamer Fifine A6T BLACK Soporte de brazo</h4>
-                    <p>S/ 199.00</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="../image/image_microphone/microfonoUgreenNegro.png" class="imagen" 
-                        alt="Microfono Ugreen USB CM564 Negro (90416)">
-                    <h3>Ugreen</h3>
-                    <h4>Microfono Ugreen USB CM564 Negro (90416)</h4>
-                    <p>S/ 79.00</p>
-                </td>
-                <td>
-                    <img src="../image/image_microphone/microfononegro.png" class="imagen"
-                        alt="Microfono Condensador 35mm mini Tripode PC negro">
-                    <h3>Genérico</h3>
-                    <h4>Microfono Condensador 35mm mini Tripode PC negro</h4>
-                    <p>S/ 69.90 </p>
-
-                </td>
-                <td>
-                    <img src="../image/image_microphone/microfonologitech.png" class="imagen"
-                        alt="Microfono Gamer Logitech Yeti Org Cardioid Usb P/Streaming Rgb Lightsync Black">
-                    <h3>Logitech</h3>
-                    <h4>Microfono Gamer Logitech Yeti Org Cardioid Usb P/Streaming Rgb Lightsync Black</h4>
-                    <p>S/ 275.00 </p>
-                </td>
-                <td>
-                    <img src="../image/image_microphone/microfonoYanmain.jpg" class="imagen" 
-                        alt="Microfono Yanmai Sf-666r Usb Rgb Streaming Gamer Color Negro">
-                    <h3>Genérico</h3>
-                    <h4>Microfono Yanmai Sf-666r Usb Rgb Streaming Gamer Color Negro</h4>
-                    <p>S/ 44.90</p>
-                </td>
-            </tr>
-                        </tbody>
+            <table class="table-ventanas" data-categoria="microfonos">
+                <tbody id="lista-productos">
+                    <!-- Productos e imágenes desde arreglo JS -->
+                </tbody>
             </table>
         </section>
     </main>
@@ -129,6 +69,8 @@
     </footer>
 
     <script src="../JS/main.js" defer></script>
+    <script src="../JS/productos.js" defer></script>
+    <script src="../JS/carrito.js" defer></script>
 </body>
 
 </html>

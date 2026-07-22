@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
 
 <head>
@@ -21,7 +21,7 @@
                 <input type="search" name="q" placeholder="Buscar productos..." aria-label="Buscar productos">
             </form>
             <ul>
-                <li>Contáctanos<p><a href="https://wa.me/51933733579" target="_blank" rel="noopener noreferrer">933 733 579</a></p></li>
+                <li>Contáctanos<p><a href="contacto.html">Formulario</a></p></li>
                 <li>Mi cuenta<p><a href="login.html">Inicia Sesión</a></p></li>
             </ul>
         </div>
@@ -40,19 +40,21 @@
             <a href="microfonos.html">MICRÓFONOS</a>
             <a href="pantallas.html">PANTALLAS</a>
             <a href="laptop.html">LAPTOPS</a>
+            <a href="contacto.html">CONTACTO</a>
+            <a href="carrito.html">CARRITO</a>
         </nav>
     </div>
 
     <main id="contenido-principal">
-        <section class="detalle-info" aria-label="Detalle del producto">
-            <h1 class="page-title">Detalle del producto</h1>
-            <p>Próximamente disponible.</p>
+        <section id="detalle-producto" class="detalle-info" aria-label="Detalle del producto">
+            <!-- Contenido cargado desde el arreglo en productos.js -->
         </section>
     </main>
 
     <footer>
         <nav class="footer-links" aria-label="Enlaces del pie de página">
             <a href="productos.html">Productos</a>
+            <a href="carrito.html">Carrito</a>
             <a href="login.html">Mi cuenta</a>
             <a href="https://wa.me/51933733579" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </nav>
@@ -60,6 +62,8 @@
     </footer>
 
     <script src="../JS/main.js" defer></script>
+    <script src="../JS/productos.js" defer></script>
+    <script src="../JS/carrito.js" defer></script>
 </body>
 
 </html>

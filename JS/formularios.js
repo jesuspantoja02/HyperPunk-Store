@@ -51,7 +51,10 @@ function validarLogin(evento) {
     const email = document.getElementById('email');
     const password = document.getElementById('password');
 
-    ['email', 'password'].forEach(limpiarErrorCampo);
+    const camposLogin = ['email', 'password'];
+    for (let i = 0; i < camposLogin.length; i++) {
+        limpiarErrorCampo(camposLogin[i]);
+    }
 
     const errores = [];
 
@@ -100,7 +103,9 @@ function validarRegistro(evento) {
     evento.preventDefault();
 
     const campos = ['nombres', 'apellidos', 'email', 'password', 'confirm-password'];
-    campos.forEach(limpiarErrorCampo);
+    for (let i = 0; i < campos.length; i++) {
+        limpiarErrorCampo(campos[i]);
+    }
 
     const nombres = document.getElementById('nombres');
     const apellidos = document.getElementById('apellidos');
