@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
 
 <head>
@@ -51,62 +51,10 @@
     <main id="contenido-principal">
         <section aria-label="Catálogo de audífonos gaming">
             <h1 class="page-title">AUDÍFONOS GAMING</h1>
-            <table class="table-ventanas">
-                <tbody>
-            <tr>
-                <td>
-                    <img src="../image/image_earphone/audifonos.png" alt="Razer Barracuda X Chroma" class="imagen">    
-                    <h3>Razer</h3>
-                    <h4>Razer Barracuda X Chroma</h4>
-                    <p>S/ 399.90</p>
-                </td>
-                <td>
-                    <img src="../image/image_earphone/audifonosHp.png" alt="Audífonos Estéreo LED HP con Micrófono DHE-8008 Negro" class="imagen">    
-                    <h3>HP</h3>
-                    <h4>Audífonos Estéreo LED HP con Micrófono DHE-8008 Negro</h4>
-                    <p>S/ 139.90</p>
-                </td>
-                <td>
-                    <img src="../image/image_earphone/audifonosRedragon.png" alt="Audífonos Gamer Redragon Zeus X H510-RGB 7.1 Virtual" class="imagen">    
-                    <h3>Redragon</h3>
-                    <h4>Audífonos Gamer Redragon Zeus X H510-RGB 7.1 Virtual</h4>
-                    <p>S/ 235.00</p>
-                </td>
-                <td>
-                    <img src="../image/image_earphone/audifonoSony.png" alt="Sony Audífonos Gamer MDR-G300 con micrófono INZONE H3 Blanco" class="imagen">    
-                    <h3>Sony</h3>
-                    <h4>Sony Audífonos Gamer MDR-G300 con micrófono INZONE H3 Blanco</h4>
-                    <p>S/ 199.00</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="../image/image_earphone/audifonosHyperx.png" alt="HyperX Cloud Auriculares 7.1 Gamer PC, PS4 - HHSR1-AH-GM/G" class="imagen">    
-                    <h3>HyperX</h3>
-                    <h4>HyperX Cloud Auriculares 7.1 Gamer PC, PS4 - HHSR1-AH-GM/G</h4>
-                    <p>S/ 719.00</p>
-                </td>
-                <td>
-                    <img src="../image/image_earphone/audifonoRazer.png" alt="Audifono Gamer Razer Blackshark V2 X Multiplataforma 50MM 7.1 Black" class="imagen">
-                    <h3>Razer</h3>
-                    <h4>Audifono Gamer Razer Blackshark V2 X Multiplataforma 50MM 7.1 Black</h4>
-                    <p>S/ 195.00</p>
-
-                </td>
-                <td>
-                    <img src="../image/image_earphone/audifonoCorsair.png" alt="Corsair Auriculares Gamer VOID RGB ELITE Wireless 7.1 - CA-9011201-NA" class="imagen">    
-                    <h3>Corsair</h3>
-                    <h4>Corsair Auriculares Gamer VOID RGB ELITE Wireless 7.1 - CA-9011201-NA</h4>
-                    <p>S/ 699.00</p>
-                </td>
-                <td>
-                    <img src="../image/image_earphone/audifonoJBL.png" alt="JBL - Audífono Quantum 610 Wireless Surround Multiplataforma" class="imagen">    
-                    <h3>JBL</h3>
-                    <h4>JBL - Audífono Quantum 610 Wireless Surround Multiplataforma</h4>
-                    <p>S/ 519.90</p>
-                </td>
-            </tr>
-                        </tbody>
+            <table class="table-ventanas" data-categoria="audifonos">
+                <tbody id="lista-productos">
+                    <!-- Productos e imágenes desde arreglo JS -->
+                </tbody>
             </table>
         </section>
     </main>
@@ -121,6 +69,8 @@
     </footer>
 
     <script src="../JS/main.js" defer></script>
+    <script src="../JS/productos.js" defer></script>
+    <script src="../JS/carrito.js" defer></script>
 </body>
 
 </html>

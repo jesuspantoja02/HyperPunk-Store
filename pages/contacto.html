@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
 
 <head>
@@ -142,6 +142,12 @@
                 <h2>Datos enviados</h2>
                 <ul id="lista-datos" class="lista-datos"></ul>
             </section>
+
+            <section id="historial-consultas" class="historial-consultas oculto" aria-labelledby="titulo-historial">
+                <h2 id="titulo-historial">Consultas guardadas (arreglo)</h2>
+                <p>Cada envío se inserta en un arreglo. Puede leer y actualizar el mensaje por índice.</p>
+                <ul id="lista-historial" class="lista-historial"></ul>
+            </section>
         </div>
     </main>
 
@@ -156,6 +162,8 @@
     </footer>
 
     <script src="../JS/main.js" defer></script>
+    <script src="../JS/productos.js" defer></script>
+    <script src="../JS/carrito.js" defer></script>
     <script src="../JS/contacto.js" defer></script>
 </body>
 

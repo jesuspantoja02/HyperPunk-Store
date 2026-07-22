@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Genera el pago de tu pedido en HyperPunk Store." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="stylesheet" href="../CSS/styleVentanas.css" />
+    <title>Pago | HyperPunk Store</title>
+</head>
+
+<body>
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido</a>
+
+    <header class="header-tienda">
+        <h3>¡Explora nuestra tienda, con tus marcas favoritas!</h3>
+        <div>
+            <h1><a href="../index.html" aria-label="HyperPunk Store - Inicio">HyperPunk Store</a></h1>
+            <form role="search" aria-label="Buscar productos">
+                <input type="search" name="q" placeholder="Buscar productos..." aria-label="Buscar productos">
+            </form>
+            <ul>
+                <li>Contáctanos<p><a href="contacto.html">Formulario</a></p></li>
+                <li>Mi cuenta<p><a href="login.html">Inicia Sesión</a></p></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="nav-wrapper">
+        <button class="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-principal">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-tienda" id="nav-principal" aria-label="Navegación principal">
+            <a href="../index.html">INICIO</a>
+            <a href="productos.html">PRODUCTOS</a>
+            <a href="mouse.html">MOUSE</a>
+            <a href="teclado.html">TECLADOS</a>
+            <a href="audifonos.html">AUDÍFONOS</a>
+            <a href="microfonos.html">MICRÓFONOS</a>
+            <a href="pantallas.html">PANTALLAS</a>
+            <a href="laptop.html">LAPTOPS</a>
+            <a href="contacto.html">CONTACTO</a>
+            <a href="carrito.html">CARRITO</a>
+            <a href="compras.html">MIS COMPRAS</a>
+        </nav>
+    </div>
+
+    <main id="contenido-principal">
+        <h1 class="page-title">GENERAR PAGO</h1>
+
+        <section class="carrito-layout">
+            <div id="pago-vacio" class="carrito-vacio oculto">
+                <p>No hay productos pendientes de pago.</p>
+                <p><a href="productos.html">Ver productos</a> · <a href="carrito.html">Ir al carrito</a></p>
+            </div>
+
+            <div id="pago-panel" class="pago-panel">
+                <div id="pago-alerta" class="alerta-global" role="alert"></div>
+
+                <div class="pago-grid">
+                    <section class="pago-resumen" aria-labelledby="titulo-resumen-pago">
+                        <h2 id="titulo-resumen-pago">Resumen del pedido</h2>
+                        <ul id="pago-resumen-lista" class="pago-resumen-lista"></ul>
+                        <div class="pago-resumen-total">
+                            <span>Total a pagar</span>
+                            <strong id="pago-total">S/ 0.00</strong>
+                        </div>
+                        <p><a href="carrito.html" class="btn-detalle-secundario">Volver al carrito</a></p>
+                    </section>
+
+                    <section class="pago-formulario" aria-labelledby="titulo-form-pago">
+                        <h2 id="titulo-form-pago">Datos de pago</h2>
+                        <p class="pago-ayuda">Simulación de pago para el proyecto. No se procesan cargos reales.</p>
+
+                        <form id="form-pago" novalidate>
+                            <div class="campo-grupo">
+                                <label for="pago-titular">Nombre del titular</label>
+                                <input type="text" id="pago-titular" name="pago-titular" autocomplete="name" placeholder="Como figura en la tarjeta o cuenta">
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label for="pago-email">Correo de confirmación</label>
+                                <input type="email" id="pago-email" name="pago-email" autocomplete="email" placeholder="correo@ejemplo.com">
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label for="pago-metodo">Método de pago</label>
+                                <select id="pago-metodo" name="pago-metodo">
+                                    <option value="">— Seleccione —</option>
+                                    <option value="Tarjeta">Tarjeta de crédito / débito</option>
+                                    <option value="Yape / Plin">Yape / Plin</option>
+                                    <option value="Transferencia bancaria">Transferencia bancaria</option>
+                                </select>
+                            </div>
+
+                            <div id="campos-tarjeta" class="pago-bloque oculto">
+                                <div class="campo-grupo">
+                                    <label for="pago-tarjeta">Número de tarjeta</label>
+                                    <input type="text" id="pago-tarjeta" name="pago-tarjeta" inputmode="numeric" maxlength="19" placeholder="4111 1111 1111 1111" autocomplete="cc-number">
+                                </div>
+                                <div class="pago-fila">
+                                    <div class="campo-grupo">
+                                        <label for="pago-vencimiento">Vencimiento</label>
+                                        <input type="text" id="pago-vencimiento" name="pago-vencimiento" placeholder="MM/AA" maxlength="5" autocomplete="cc-exp">
+                                    </div>
+                                    <div class="campo-grupo">
+                                        <label for="pago-cvv">CVV</label>
+                                        <input type="password" id="pago-cvv" name="pago-cvv" maxlength="4" placeholder="123" autocomplete="cc-csc">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="campos-yape" class="pago-bloque oculto">
+                                <div class="campo-grupo">
+                                    <label for="pago-celular">Celular Yape / Plin</label>
+                                    <input type="tel" id="pago-celular" name="pago-celular" maxlength="9" placeholder="987654321">
+                                </div>
+                            </div>
+
+                            <div id="campos-transferencia" class="pago-bloque oculto">
+                                <div class="campo-grupo">
+                                    <label for="pago-banco">Banco</label>
+                                    <input type="text" id="pago-banco" name="pago-banco" placeholder="Ej. BCP, Interbank, BBVA">
+                                </div>
+                                <p class="pago-nota">Cuenta demo HyperPunk: 191-00000000-0-00</p>
+                            </div>
+
+                            <button type="submit" class="btn-finalizar-compra btn-generar-pago">Confirmar y generar pago</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <nav class="footer-links" aria-label="Enlaces del pie de página">
+            <a href="productos.html">Productos</a>
+            <a href="carrito.html">Carrito</a>
+            <a href="compras.html">Mis compras</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <p>&copy; 2026 HyperPunk Store. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../JS/main.js" defer></script>
+    <script src="../JS/productos.js" defer></script>
+    <script src="../JS/carrito.js" defer></script>
+</body>
+
+</html>

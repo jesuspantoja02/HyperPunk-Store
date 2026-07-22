@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
 
 <head>
@@ -51,64 +51,10 @@
     <main id="contenido-principal">
         <section aria-label="Catálogo de laptops gaming">
             <h1 class="page-title">LAPTOPS GAMING</h1>
-            <table class="table-ventanas">
-                <tbody>
-            <tr>
-                <td>
-                    <img src="../image/image_laptop/laptop1.jpg" alt="Laptop HP ProBook 640 G8 i5 11va 16GB RAM 256GB SSD Reacondicionada FHD" class="imagen">
-                    <h3>HP</h3>
-                    <h4> Laptop HP ProBook 640 G8 i5 11va 16GB RAM 256GB SSD Reacondicionada FHD </h4>
-                    <p>S/ 1 500.00</p>
-                </td>
-                <td>
-                    <img src="../image/image_laptop/laptop2.png"
-                        alt="LAPTOP GAMER ASUS V16 V3607VU-RP038W INTEL CORE 5 16GB RAM 512GB SSD RTX 4050 16" class="imagen" >
-                    <h3>ASUS </h3>
-                    <h4>LAPTOP GAMER ASUS V16 V3607VU-RP038W INTEL CORE 5 16GB RAM 512GB SSD RTX 4050 16</h4>
-                    <p>S/ 3 200.90</p>
-                </td>
-                <td>
-                    <img src="../image/image_laptop/laptop3.png"
-                        alt="LAPTOP GAMER LENOVO LOQ INTEL CORE I5 16GB RAM 1TB SSD RTX 3050 6GB 15.6 FHD 144HZ" class="imagen" >
-                    <h3>LENOVO</h3>
-                    <h4>LAPTOP GAMER LOQ INTEL CORE I5 16GB RAM 1TB SSD RTX 3050 6GB 15.6" FHD 144HZ</h4>
-                    <p>S/ 2 899.90</p>
-                </td>
-                <td>
-                    <img src="../image/image_laptop/laptop4.png"alt="LAPTOP GAMER ACER NITRO V INTEL CORE I5 16GB RAM 512GB SSD RTX 5050 15.6" class="imagen">
-                    <h3>ACER</h3>
-                    <h4> LAPTOP GAMER ACER NITRO V INTEL CORE I5 16GB RAM 512GB SSD RTX 5050 15.6 </h4>
-                    <p>S/ 3 000.00</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="../image/image_laptop/laptop5.png" alt=" Laptop ASUS 16 2K Táctil 2 en 1 Intel Core Ultra 7 256V 16GB 1TB Win11" class="imagen">
-                    <h3>ASUS</h3>
-                    <h4>Laptop ASUS 16 2K Táctil 2 en 1 Intel Core Ultra 7 256V 16GB 1TB Win11</h4>
-                    <p>S/ 3 800.00</p>
-                </td>
-                <td>
-                    <img src="../image/image_laptop/laptop6.png" alt="LAPTOP ASUS VIVOBOOK 15 X1504VA-BQ4587W INTEL CORE 7 150U 16GB 512SSD 15.6' FHD" class="imagen">
-                    <h3>ASUS</h3>
-                    <h4> LAPTOP ASUS VIVOBOOK 15 X1504VA-BQ4587W INTEL CORE 7 150U 16GB 512SSD 15.6" FHD </h4>
-                    <p>S/ 4 500.90</p>
-
-                </td>
-                <td>
-                    <img src="../image/image_laptop/laptop8.png" alt="LAPTOP HP AI 15-FD2381LA INTEL CORE ULTRA 7 24GB RAM 1TB SSD 15.6" class="imagen">
-                    <h3>HP</h3>
-                    <h4>LAPTOP HP AI 15-FD2381LA INTEL CORE ULTRA 7 24GB RAM 1TB SSD 15.6 </h4>
-                    <p>S/ 3 990.99</p>
-                </td>
-                <td>
-                    <img src="../image/image_laptop/laptop7.png" alt="LAPTOP ASUS TUF GAMING A16 R9 16GB 1TB RTX 5070 8GB 16" class="imagen">
-                    <h3>ASUS</h3>
-                    <h4>LAPTOP ASUS TUF GAMING A16 R9 16GB 1TB RTX 5070 8GB 16'</h4>
-                    <p>S/ 5 190.90</p>
-                </td>
-            </tr>
-                        </tbody>
+            <table class="table-ventanas" data-categoria="laptop">
+                <tbody id="lista-productos">
+                    <!-- Productos e imágenes desde arreglo JS -->
+                </tbody>
             </table>
         </section>
     </main>
@@ -123,6 +69,8 @@
     </footer>
 
     <script src="../JS/main.js" defer></script>
+    <script src="../JS/productos.js" defer></script>
+    <script src="../JS/carrito.js" defer></script>
 </body>
 
 </html>
