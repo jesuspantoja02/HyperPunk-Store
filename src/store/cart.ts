@@ -44,8 +44,8 @@ export const useCartStore = create<CartStore>()(
           set({ items: [...items, { product, quantity }] });
         }
         toast.success(`${product.name.split(" ").slice(0, 3).join(" ")} agregado al carrito`, {
-          style: { background: "#1c2129", color: "#d0d7e0", border: "1px solid rgba(255,255,255,0.1)" },
-          iconTheme: { primary: "#7a9bb8", secondary: "#0c0e12" },
+          style: { background: "#0d0d0d", color: "#ffffff", border: "1px solid #333" },
+          iconTheme: { primary: "#1f85ff", secondary: "#0d0d0d" },
         });
       },
 

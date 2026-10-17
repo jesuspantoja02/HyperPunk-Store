@@ -80,7 +80,7 @@ function CatalogContent() {
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Header */}
       <div className="mb-8">
-        <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+        <div className="flex items-center gap-2 text-sm text-mm-muted mb-2">
           <span>Inicio</span> <span>/</span>
           <span className="text-neon-cyan">{currentCategory?.label || "Todo el catálogo"}</span>
         </div>
@@ -89,7 +89,7 @@ function CatalogContent() {
             <><span className="mr-2">{currentCategory.icon}</span>{currentCategory.label.toUpperCase()}</>
           ) : "CATÁLOGO COMPLETO"}
         </h1>
-        <p className="text-gray-500 text-sm mt-1">{filtered.length} productos encontrados</p>
+        <p className="text-mm-muted text-sm mt-1">{filtered.length} productos encontrados</p>
       </div>
 
       {/* Category pills */}
@@ -99,7 +99,7 @@ function CatalogContent() {
           className={`shrink-0 px-4 py-1.5 rounded-full text-sm border transition-all ${
             selectedCategory === "all"
               ? "border-neon-cyan text-neon-cyan bg-neon-cyan/10"
-              : "border-punk-700/50 text-gray-400 hover:border-neon-cyan/50 hover:text-neon-cyan"
+              : "border-mm-border text-mm-muted hover:border-neon-cyan/50 hover:text-neon-cyan"
           }`}
         >
           Todo ({allProducts.length})
@@ -111,7 +111,7 @@ function CatalogContent() {
             className={`shrink-0 px-4 py-1.5 rounded-full text-sm border transition-all flex items-center gap-1.5 ${
               selectedCategory === cat.id
                 ? "border-neon-purple text-neon-purple bg-neon-purple/10"
-                : "border-punk-700/50 text-gray-400 hover:border-neon-purple/50 hover:text-neon-purple"
+                : "border-mm-border text-mm-muted hover:border-neon-purple/50 hover:text-neon-purple"
             }`}
           >
             <span>{cat.icon}</span> {cat.label} ({cat.count})
@@ -125,7 +125,7 @@ function CatalogContent() {
           <div className="glass rounded-xl p-5 space-y-6">
             {/* Header */}
             <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-gray-100 flex items-center gap-2">
+              <h2 className="font-semibold text-mm-text flex items-center gap-2">
                 <SlidersHorizontal className="w-4 h-4 text-neon-purple" />
                 Filtros
                 {activeFiltersCount > 0 && (
@@ -133,7 +133,7 @@ function CatalogContent() {
                 )}
               </h2>
               {activeFiltersCount > 0 && (
-                <button onClick={clearFilters} className="text-xs text-gray-500 hover:text-neon-pink transition-colors flex items-center gap-1">
+                <button onClick={clearFilters} className="text-xs text-mm-muted hover:text-neon-pink transition-colors flex items-center gap-1">
                   <X className="w-3 h-3" /> Limpiar
                 </button>
               )}
@@ -141,7 +141,7 @@ function CatalogContent() {
 
             {/* Price range */}
             <div>
-              <h3 className="text-sm font-medium text-gray-300 mb-3">Precio</h3>
+              <h3 className="text-sm font-medium text-mm-text mb-3">Precio</h3>
               <div className="space-y-3">
                 <input
                   type="range"
@@ -151,7 +151,7 @@ function CatalogContent() {
                   onChange={e => setPriceRange([priceRange[0], Number(e.target.value)])}
                   className="w-full"
                 />
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2 text-sm text-mm-muted">
                   <input
                     type="number"
                     value={priceRange[0]}
@@ -174,7 +174,7 @@ function CatalogContent() {
             {/* Brands */}
             {availableBrands.length > 0 && (
               <div>
-                <h3 className="text-sm font-medium text-gray-300 mb-3">Marcas</h3>
+                <h3 className="text-sm font-medium text-mm-text mb-3">Marcas</h3>
                 <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
                   {availableBrands.map(brand => (
                     <label key={brand} className="flex items-center gap-2 cursor-pointer group">
@@ -184,7 +184,7 @@ function CatalogContent() {
                         onChange={() => toggleBrand(brand)}
                         className="rounded border-punk-600 bg-punk-800 text-neon-purple focus:ring-neon-purple"
                       />
-                      <span className="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">{brand}</span>
+                      <span className="text-sm text-mm-muted group-hover:text-mm-text transition-colors">{brand}</span>
                     </label>
                   ))}
                 </div>
@@ -193,7 +193,7 @@ function CatalogContent() {
 
             {/* Rating */}
             <div>
-              <h3 className="text-sm font-medium text-gray-300 mb-3">Calificación mínima</h3>
+              <h3 className="text-sm font-medium text-mm-text mb-3">Calificación mínima</h3>
               <div className="space-y-1.5">
                 {[4.5, 4, 3.5, 0].map(r => (
                   <button
@@ -202,7 +202,7 @@ function CatalogContent() {
                     className={`w-full flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg transition-all ${
                       minRating === r && r > 0
                         ? "bg-neon-purple/20 text-neon-purple border border-neon-purple/40"
-                        : "text-gray-400 hover:bg-punk-800/50"
+                        : "text-mm-muted hover:bg-mm-surface"
                     }`}
                   >
                     <span className="text-punk-400">{"★".repeat(Math.floor(r))}{"☆".repeat(5 - Math.floor(r))}</span>
@@ -220,7 +220,7 @@ function CatalogContent() {
                 onChange={e => setInStockOnly(e.target.checked)}
                 className="rounded border-punk-600 bg-punk-800 text-neon-purple"
               />
-              <span className="text-sm text-gray-400">Solo disponibles</span>
+              <span className="text-sm text-mm-muted">Solo disponibles</span>
             </label>
           </div>
         </aside>
@@ -253,20 +253,20 @@ function CatalogContent() {
                   <option value="new">Nuevos primero</option>
                   <option value="featured">Destacados</option>
                 </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-mm-muted pointer-events-none" />
               </div>
 
               {/* View toggle */}
               <div className="flex items-center gap-1 glass rounded-lg p-1">
                 <button
                   onClick={() => setView("grid")}
-                  className={`p-1.5 rounded transition-all ${view === "grid" ? "bg-punk-600 text-punk-100" : "text-gray-500 hover:text-gray-300"}`}
+                  className={`p-1.5 rounded transition-all ${view === "grid" ? "bg-punk-600 text-punk-100" : "text-mm-muted hover:text-mm-text"}`}
                 >
                   <Grid3X3 className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setView("list")}
-                  className={`p-1.5 rounded transition-all ${view === "list" ? "bg-punk-600 text-punk-100" : "text-gray-500 hover:text-gray-300"}`}
+                  className={`p-1.5 rounded transition-all ${view === "list" ? "bg-punk-600 text-punk-100" : "text-mm-muted hover:text-mm-text"}`}
                 >
                   <List className="w-4 h-4" />
                 </button>
@@ -309,8 +309,8 @@ function CatalogContent() {
           {filtered.length === 0 ? (
             <div className="text-center py-24">
               <p className="text-4xl mb-4">🔍</p>
-              <p className="text-gray-400 font-medium">No se encontraron productos</p>
-              <p className="text-sm text-gray-600 mt-1">Prueba con otros filtros</p>
+              <p className="text-mm-muted font-medium">No se encontraron productos</p>
+              <p className="text-sm text-mm-muted mt-1">Prueba con otros filtros</p>
               <button onClick={clearFilters} className="btn-ghost mt-4 text-sm py-2 px-6">
                 Limpiar filtros
               </button>

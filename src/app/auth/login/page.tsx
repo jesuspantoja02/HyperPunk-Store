@@ -20,15 +20,15 @@ export default function LoginPage() {
           <h1 className="font-display font-bold text-2xl text-punk-100">
             HYPER<span className="text-punk-300">PUNK</span>
           </h1>
-          <p className="text-gray-500 text-sm mt-1">Bienvenido de vuelta</p>
+          <p className="text-mm-muted text-sm mt-1">Bienvenido de vuelta</p>
         </div>
 
         <div className="glass rounded-2xl p-8">
-          <h2 className="text-xl font-semibold text-gray-100 mb-6">Iniciar sesión</h2>
+          <h2 className="text-xl font-semibold text-mm-text mb-6">Iniciar sesión</h2>
 
           <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
             <div>
-              <label className="text-xs text-gray-500 mb-1 block">Email</label>
+              <label className="text-xs text-mm-muted mb-1 block">Email</label>
               <input
                 type="email"
                 value={email}
@@ -39,7 +39,7 @@ export default function LoginPage() {
               />
             </div>
             <div>
-              <label className="text-xs text-gray-500 mb-1 block">Contraseña</label>
+              <label className="text-xs text-mm-muted mb-1 block">Contraseña</label>
               <div className="relative">
                 <input
                   type={showPass ? "text" : "password"}
@@ -52,7 +52,7 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPass(!showPass)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-mm-muted hover:text-mm-text"
                 >
                   {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -72,10 +72,10 @@ export default function LoginPage() {
 
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-punk-700/50" />
+              <div className="w-full border-t border-mm-border" />
             </div>
             <div className="relative flex justify-center">
-              <span className="bg-punk-800 px-3 text-xs text-gray-500">o continúa con</span>
+              <span className="bg-punk-800 px-3 text-xs text-mm-muted">o continúa con</span>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ export default function LoginPage() {
             </button>
           </div>
 
-          <p className="text-center text-sm text-gray-500 mt-6">
+          <p className="text-center text-sm text-mm-muted mt-6">
             ¿No tienes cuenta?{" "}
             <Link href="/auth/register" className="text-neon-cyan hover:underline font-medium">
               Regístrate aquí
@@ -96,11 +96,11 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <p className="text-center text-xs text-gray-600 mt-4">
+        <p className="text-center text-xs text-mm-muted mt-4">
           Al iniciar sesión aceptas nuestros{" "}
-          <Link href="#" className="hover:text-gray-400">Términos de servicio</Link>
+          <Link href="#" className="hover:text-mm-muted">Términos de servicio</Link>
           {" "}y{" "}
-          <Link href="#" className="hover:text-gray-400">Política de privacidad</Link>
+          <Link href="#" className="hover:text-mm-muted">Política de privacidad</Link>
         </p>
       </div>
     </div>

@@ -43,20 +43,20 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8">
+      <nav className="flex items-center gap-2 text-sm text-mm-muted mb-8">
         <Link href="/" className="hover:text-neon-cyan transition-colors">Inicio</Link>
         <ChevronRight className="w-4 h-4" />
         <Link href="/catalog" className="hover:text-neon-cyan transition-colors">Catálogo</Link>
         <ChevronRight className="w-4 h-4" />
         <Link href={`/catalog?category=${product.category}`} className="hover:text-neon-cyan transition-colors capitalize">{product.category}</Link>
         <ChevronRight className="w-4 h-4" />
-        <span className="text-gray-300 truncate max-w-xs">{product.name}</span>
+        <span className="text-mm-text truncate max-w-xs">{product.name}</span>
       </nav>
 
       <div className="grid lg:grid-cols-2 gap-12 mb-16">
         {/* Image */}
         <div className="space-y-4">
-          <div className="relative aspect-square rounded-2xl overflow-hidden bg-punk-900/60 border border-punk-700/40">
+          <div className="relative aspect-square rounded-2xl overflow-hidden bg-mm-surface border border-mm-border">
             <Image
               src={imgError ? "https://placehold.co/600x600/1a0030/bf00ff?text=HyperPunk" : product.images[0]}
               alt={product.name}
@@ -78,8 +78,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <div className="space-y-6">
           {/* Brand & Name */}
           <div>
-            <p className="text-sm text-gray-500 mb-1">{product.brand}</p>
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-100 leading-tight">{product.name}</h1>
+            <p className="text-sm text-mm-muted mb-1">{product.brand}</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-mm-text leading-tight">{product.name}</h1>
           </div>
 
           {/* Rating */}
@@ -89,7 +89,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 <Star key={i} className={`w-5 h-5 ${i < Math.round(product.rating) ? "fill-punk-400 text-punk-400" : "text-gray-700"}`} />
               ))}
             </div>
-            <span className="text-sm text-gray-400">{product.rating} ({product.reviewCount} reseñas)</span>
+            <span className="text-sm text-mm-muted">{product.rating} ({product.reviewCount} reseñas)</span>
             {product.stock < 5 && product.stock > 0 && (
               <span className="text-sm text-orange-400">• Solo {product.stock} disponibles</span>
             )}
@@ -100,7 +100,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             <div className="flex items-end gap-3 mb-2">
               <p className="price-tag text-4xl font-black">{formatPrice(product.price)}</p>
               {product.comparePrice && (
-                <p className="text-xl text-gray-600 line-through pb-0.5">{formatPrice(product.comparePrice)}</p>
+                <p className="text-xl text-mm-muted line-through pb-0.5">{formatPrice(product.comparePrice)}</p>
               )}
             </div>
             {discount > 0 && (
@@ -108,19 +108,19 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 Ahorras {formatPrice(product.comparePrice! - product.price)} ({discount}% OFF)
               </p>
             )}
-            <p className="text-xs text-gray-600 mt-2">Precio incluye IGV · Hasta 12 cuotas sin intereses</p>
+            <p className="text-xs text-mm-muted mt-2">Precio incluye IGV · Hasta 12 cuotas sin intereses</p>
           </div>
 
           {/* Description */}
-          <p className="text-gray-400 leading-relaxed">{product.description}</p>
+          <p className="text-mm-muted leading-relaxed">{product.description}</p>
 
           {/* Quantity */}
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-400">Cantidad:</span>
+            <span className="text-sm text-mm-muted">Cantidad:</span>
             <div className="flex items-center glass rounded-lg overflow-hidden">
               <button
                 onClick={() => setQty(q => Math.max(1, q - 1))}
-                className="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-punk-700 transition-colors"
+                className="w-10 h-10 flex items-center justify-center text-mm-muted hover:text-white hover:bg-punk-700 transition-colors"
               >
                 <Minus className="w-4 h-4" />
               </button>
@@ -128,12 +128,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <button
                 onClick={() => setQty(q => Math.min(product.stock, q + 1))}
                 disabled={qty >= product.stock}
-                className="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-punk-700 transition-colors disabled:opacity-30"
+                className="w-10 h-10 flex items-center justify-center text-mm-muted hover:text-white hover:bg-punk-700 transition-colors disabled:opacity-30"
               >
                 <Plus className="w-4 h-4" />
               </button>
             </div>
-            <span className="text-xs text-gray-600">{product.stock} disponibles</span>
+            <span className="text-xs text-mm-muted">{product.stock} disponibles</span>
           </div>
 
           {/* Actions */}
@@ -168,19 +168,19 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             ].map(({ icon: Icon, label, sub }) => (
               <div key={label} className="text-center glass rounded-lg p-3">
                 <Icon className="w-5 h-5 mx-auto mb-1 text-neon-cyan" />
-                <p className="text-xs font-medium text-gray-300">{label}</p>
-                <p className="text-xs text-gray-600">{sub}</p>
+                <p className="text-xs font-medium text-mm-text">{label}</p>
+                <p className="text-xs text-mm-muted">{sub}</p>
               </div>
             ))}
           </div>
 
           {/* Meta */}
-          <div className="text-xs text-gray-600 space-y-1 pt-2">
-            <p>SKU: <span className="text-gray-400">{product.sku}</span></p>
+          <div className="text-xs text-mm-muted space-y-1 pt-2">
+            <p>SKU: <span className="text-mm-muted">{product.sku}</span></p>
             <p>Categoría: <Link href={`/catalog?category=${product.category}`} className="text-neon-cyan hover:underline capitalize">{product.category}</Link></p>
             <div className="flex flex-wrap gap-1 mt-2">
               {product.tags.map(tag => (
-                <span key={tag} className="px-2 py-0.5 rounded-full bg-punk-800/60 text-gray-500 border border-punk-700/40 text-xs">#{tag}</span>
+                <span key={tag} className="px-2 py-0.5 rounded-full bg-mm-surface text-mm-muted border border-mm-border text-xs">#{tag}</span>
               ))}
             </div>
           </div>
@@ -189,7 +189,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
       {/* Tabs */}
       <div className="mb-16">
-        <div className="flex gap-1 border-b border-punk-800/50 mb-6">
+        <div className="flex gap-1 border-b border-mm-border mb-6">
           {(["specs", "reviews", "shipping"] as const).map(tab => (
             <button
               key={tab}
@@ -197,7 +197,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               className={`px-5 py-3 text-sm font-medium transition-all border-b-2 -mb-px ${
                 activeTab === tab
                   ? "border-neon-cyan text-neon-cyan"
-                  : "border-transparent text-gray-500 hover:text-gray-300"
+                  : "border-transparent text-mm-muted hover:text-mm-text"
               }`}
             >
               {tab === "specs" ? "Especificaciones" : tab === "reviews" ? `Reseñas (${product.reviewCount})` : "Envío"}
@@ -209,9 +209,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           <div className="glass rounded-xl p-6">
             <div className="grid sm:grid-cols-2 gap-3">
               {Object.entries(product.specs).map(([key, value]) => (
-                <div key={key} className="flex justify-between items-start gap-4 py-3 border-b border-punk-800/30 last:border-0">
-                  <span className="text-sm text-gray-500 font-medium shrink-0">{key}</span>
-                  <span className="text-sm text-gray-200 text-right">{value}</span>
+                <div key={key} className="flex justify-between items-start gap-4 py-3 border-b border-mm-border last:border-0">
+                  <span className="text-sm text-mm-muted font-medium shrink-0">{key}</span>
+                  <span className="text-sm text-mm-text text-right">{value}</span>
                 </div>
               ))}
             </div>
@@ -229,12 +229,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                     <Star key={i} className={`w-4 h-4 ${i < Math.round(product.rating) ? "fill-punk-400 text-punk-400" : "text-gray-700"}`} />
                   ))}
                 </div>
-                <p className="text-xs text-gray-500">{product.reviewCount} reseñas</p>
+                <p className="text-xs text-mm-muted">{product.reviewCount} reseñas</p>
               </div>
               <div className="flex-1">
                 {[5, 4, 3, 2, 1].map(n => (
                   <div key={n} className="flex items-center gap-2 text-xs mb-1">
-                    <span className="text-gray-500 w-4">{n}</span>
+                    <span className="text-mm-muted w-4">{n}</span>
                     <Star className="w-3 h-3 fill-punk-400 text-punk-400 shrink-0" />
                     <div className="flex-1 bg-punk-800 rounded-full h-1.5">
                       <div
@@ -251,17 +251,17 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <div key={i} className="card-punk p-5">
                 <div className="flex items-start justify-between mb-2">
                   <div>
-                    <p className="font-medium text-gray-200">{review.user}</p>
+                    <p className="font-medium text-mm-text">{review.user}</p>
                     <div className="flex items-center gap-1 mt-0.5">
                       {Array.from({ length: 5 }).map((_, j) => (
                         <Star key={j} className={`w-3 h-3 ${j < review.rating ? "fill-punk-400 text-punk-400" : "text-gray-700"}`} />
                       ))}
                     </div>
                   </div>
-                  <span className="text-xs text-gray-600">{review.date}</span>
+                  <span className="text-xs text-mm-muted">{review.date}</span>
                 </div>
-                <p className="text-sm font-semibold text-gray-200 mb-1">{review.title}</p>
-                <p className="text-sm text-gray-400">{review.body}</p>
+                <p className="text-sm font-semibold text-mm-text mb-1">{review.title}</p>
+                <p className="text-sm text-mm-muted">{review.body}</p>
                 <div className="flex items-center gap-2 mt-3">
                   <span className="text-xs text-neon-green">✓ Compra verificada</span>
                 </div>
@@ -278,15 +278,15 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               { title: "Provincias (resto del país)", detail: "3-5 días hábiles", price: "S/ 25-35", highlight: false },
               { title: "Recojo en tienda (Lima)", detail: "Disponible mismo día", price: "GRATIS", highlight: true },
             ].map(({ title, detail, price, highlight }) => (
-              <div key={title} className={`flex items-center justify-between p-4 rounded-lg border ${highlight ? "border-neon-green/30 bg-neon-green/5" : "border-punk-700/40 bg-punk-900/30"}`}>
+              <div key={title} className={`flex items-center justify-between p-4 rounded-lg border ${highlight ? "border-neon-green/30 bg-neon-green/5" : "border-mm-border bg-mm-surface/30"}`}>
                 <div>
-                  <p className="text-sm font-medium text-gray-200">{title}</p>
-                  <p className="text-xs text-gray-500">{detail}</p>
+                  <p className="text-sm font-medium text-mm-text">{title}</p>
+                  <p className="text-xs text-mm-muted">{detail}</p>
                 </div>
-                <span className={`text-sm font-bold ${highlight ? "text-neon-green" : "text-gray-300"}`}>{price}</span>
+                <span className={`text-sm font-bold ${highlight ? "text-neon-green" : "text-mm-text"}`}>{price}</span>
               </div>
             ))}
-            <p className="text-xs text-gray-600 mt-4">* Envíos procesados en días hábiles. Tiempos estimados desde confirmación de pago.</p>
+            <p className="text-xs text-mm-muted mt-4">* Envíos procesados en días hábiles. Tiempos estimados desde confirmación de pago.</p>
           </div>
         )}
       </div>

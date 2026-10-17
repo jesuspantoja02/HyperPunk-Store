@@ -9,14 +9,14 @@ import { formatPrice } from "@/lib/utils";
 import Image from "next/image";
 
 const NAV_LINKS = [
-  { href: "/catalog?category=teclados",   label: "Teclados",   emoji: "⌨️" },
-  { href: "/catalog?category=audifonos",  label: "Audífonos",  emoji: "🎧" },
-  { href: "/catalog?category=microfonos", label: "Micrófonos", emoji: "🎤" },
-  { href: "/catalog?category=monitores",  label: "Monitores",  emoji: "🖥️" },
-  { href: "/catalog?category=mouse",      label: "Mouse",      emoji: "🖱️" },
-  { href: "/catalog?category=consolas",   label: "Consolas",   emoji: "🎮" },
-  { href: "/catalog?category=laptops",    label: "Laptops",    emoji: "💻" },
-  { href: "/catalog?category=accesorios", label: "Accesorios", emoji: "🔌" },
+  { href: "/catalog?category=teclados",   label: "Teclados" },
+  { href: "/catalog?category=audifonos",  label: "Audífonos" },
+  { href: "/catalog?category=microfonos", label: "Micrófonos" },
+  { href: "/catalog?category=monitores",  label: "Monitores" },
+  { href: "/catalog?category=mouse",      label: "Mouse" },
+  { href: "/catalog?category=consolas",   label: "Consolas" },
+  { href: "/catalog?category=laptops",    label: "Laptops" },
+  { href: "/catalog?category=accesorios", label: "Accesorios" },
 ];
 
 export function Navbar() {
@@ -26,14 +26,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<typeof allProducts>([]);
-  const [scrolled, setScrolled] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     if (query.length < 2) { setResults([]); return; }
@@ -61,143 +54,129 @@ export function Navbar() {
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "glass-dark shadow-lg shadow-punk-900/50"
-          : "bg-dark-950/90 backdrop-blur-sm"
-      }`}
-    >
-      {/* Top announcement bar */}
-      <div className="bg-punk-800 border-b border-white/5 text-xs text-center py-1.5 text-punk-200 tracking-wider">
+    <header className="sticky top-0 z-50">
+      {/* Promo bar — azul MM */}
+      <div className="bg-mm-blue text-white text-xs text-center py-2 tracking-wide">
         Envío gratis en compras mayores a S/ 200 · Pago seguro con Stripe · Garantía en todos los productos
       </div>
 
-      <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0 group">
-          <div className="w-8 h-8 rounded-lg bg-punk-600 flex items-center justify-center group-hover:bg-punk-500 transition-colors">
-            <Zap className="w-5 h-5 text-punk-100" fill="currentColor" />
+      {/* Header negro */}
+      <div className="bg-mm-black text-white">
+        <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4">
+          <Link href="/" className="flex items-center gap-2 shrink-0">
+            <div className="w-8 h-8 rounded-md bg-mm-blue flex items-center justify-center">
+              <Zap className="w-4 h-4 text-white" fill="currentColor" />
+            </div>
+            <span className="font-semibold text-lg tracking-tight hidden sm:block">
+              HYPERPUNK
+            </span>
+          </Link>
+
+          <div className="hidden md:flex flex-1 max-w-md mx-4" ref={searchRef}>
+            <div className="relative w-full">
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => { setQuery(e.target.value); setSearchOpen(true); }}
+                onFocus={() => setSearchOpen(true)}
+                placeholder="Buscar..."
+                className="w-full rounded-lg bg-[#262626] border border-transparent text-sm text-white placeholder:text-gray-500 px-4 py-2.5 pr-10 outline-none focus:border-mm-blue"
+              />
+              <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+
+              {searchOpen && results.length > 0 && (
+                <ul className="absolute left-0 right-0 top-12 bg-white text-mm-text rounded-lg shadow-lg border border-mm-border overflow-hidden z-50">
+                  {results.map((p) => (
+                    <li key={p.id}>
+                      <Link
+                        href={`/product/${p.slug}`}
+                        onClick={() => { setSearchOpen(false); setQuery(""); }}
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-mm-surface transition-colors"
+                      >
+                        <div className="relative w-10 h-10 rounded bg-mm-surface shrink-0 overflow-hidden">
+                          <Image src={p.images[0]} alt={p.name} fill className="object-contain p-1" unoptimized />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-sm truncate">{p.name}</p>
+                          <p className="text-xs text-mm-blue font-semibold">{formatPrice(p.price)}</p>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </div>
-          <span className="font-display font-bold text-lg hidden sm:block text-punk-100 tracking-wide">
-            HYPER<span className="text-punk-300">PUNK</span>
-          </span>
-        </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-1 mx-4 flex-1">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="px-3 py-1.5 text-sm text-gray-300 hover:text-neon-cyan hover:bg-punk-800/50 rounded-md transition-all duration-200 whitespace-nowrap"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-2 ml-auto">
-          {/* Search */}
-          <div ref={searchRef} className="relative">
+          <div className="flex items-center gap-1 ml-auto">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="p-2 rounded-lg text-gray-400 hover:text-neon-cyan hover:bg-punk-800/50 transition-all"
+              className="md:hidden p-2 rounded-lg text-gray-300 hover:text-white"
               aria-label="Buscar"
             >
               <Search className="w-5 h-5" />
             </button>
 
-            {searchOpen && (
-              <div className="absolute right-0 top-12 w-80 sm:w-96 glass rounded-xl shadow-2xl shadow-black/60 overflow-hidden">
-                <div className="p-3">
-                  <input
-                    autoFocus
-                    type="text"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Buscar productos, marcas..."
-                    className="input-punk w-full text-sm"
-                  />
-                </div>
+            <Link
+              href="/auth/login"
+              className="hidden sm:block text-sm text-gray-300 hover:text-white px-3 py-2"
+            >
+              Iniciar sesión
+            </Link>
 
-                {results.length > 0 && (
-                  <ul className="border-t border-punk-700/50 divide-y divide-punk-800/50 max-h-80 overflow-y-auto">
-                    {results.map((p) => (
-                      <li key={p.id}>
-                        <Link
-                          href={`/product/${p.slug}`}
-                          onClick={() => { setSearchOpen(false); setQuery(""); }}
-                          className="flex items-center gap-3 px-4 py-3 hover:bg-punk-800/50 transition-colors"
-                        >
-                          <div className="relative w-10 h-10 rounded-md overflow-hidden bg-punk-800 shrink-0">
-                            <Image src={p.images[0]} alt={p.name} fill className="object-contain p-1" unoptimized />
-                          </div>
-                          <div className="min-w-0">
-                            <p className="text-sm text-gray-200 truncate">{p.name}</p>
-                            <p className="text-xs text-neon-cyan font-semibold">{formatPrice(p.price)}</p>
-                          </div>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+            <button
+              onClick={toggleCart}
+              className="relative p-2 rounded-lg text-gray-300 hover:text-white"
+              aria-label="Carrito"
+            >
+              <ShoppingCart className="w-5 h-5" />
+              {count > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-mm-blue text-white text-[10px] font-semibold rounded-full flex items-center justify-center">
+                  {count > 99 ? "99+" : count}
+                </span>
+              )}
+            </button>
 
-                {query.length >= 2 && results.length === 0 && (
-                  <p className="text-center text-sm text-gray-500 py-6">No se encontraron productos</p>
-                )}
-              </div>
-            )}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2 rounded-lg text-gray-300 hover:text-white"
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
+        </nav>
+      </div>
 
-          {/* Cart */}
-          <button
-            onClick={toggleCart}
-            className="relative p-2 rounded-lg text-gray-400 hover:text-neon-cyan hover:bg-punk-800/50 transition-all"
-            aria-label="Carrito"
-          >
-            <ShoppingCart className="w-5 h-5" />
-            {count > 0 && (
-              <span className="absolute -top-1 -right-1 w-5 h-5 bg-punk-500 text-punk-50 text-xs font-medium rounded-full flex items-center justify-center">
-                {count > 99 ? "99+" : count}
-              </span>
-            )}
-          </button>
-
-          {/* Auth */}
-          <Link
-            href="/auth/login"
-            className="hidden sm:block btn-ghost text-sm py-2 px-4"
-          >
-            Iniciar sesión
-          </Link>
-
-          {/* Mobile menu */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-lg text-gray-400 hover:text-neon-cyan hover:bg-punk-800/50 transition-all"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+      {/* Menú blanco como MM Store */}
+      <div className="bg-white border-b border-mm-border hidden lg:block">
+        <div className="max-w-7xl mx-auto px-4 flex items-center gap-1 h-11">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="px-3 py-2 text-sm font-medium text-mm-text hover:text-mm-blue transition-colors uppercase tracking-wide"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
-      </nav>
+      </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden glass-dark border-t border-punk-700/50 py-4 px-4 animate-in">
-          <div className="grid grid-cols-2 gap-2">
+        <div className="lg:hidden bg-white border-b border-mm-border py-3 px-4">
+          <div className="grid grid-cols-2 gap-1">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-2 px-3 py-2 text-sm text-gray-300 hover:text-neon-cyan hover:bg-punk-800/50 rounded-md transition-all"
+                className="px-3 py-2.5 text-sm font-medium text-mm-text hover:bg-mm-surface rounded-md"
               >
-                <span>{link.emoji}</span> {link.label}
+                {link.label}
               </Link>
             ))}
           </div>
-          <div className="mt-4 pt-4 border-t border-punk-700/50 flex gap-2">
+          <div className="mt-3 pt-3 border-t border-mm-border flex gap-2">
             <Link href="/auth/login" className="flex-1 btn-ghost text-sm py-2 text-center" onClick={() => setMobileOpen(false)}>
               Iniciar sesión
             </Link>
