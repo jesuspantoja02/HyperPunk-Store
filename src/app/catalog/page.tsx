@@ -205,7 +205,7 @@ function CatalogContent() {
                         : "text-gray-400 hover:bg-punk-800/50"
                     }`}
                   >
-                    <span className="text-yellow-400">{"★".repeat(Math.floor(r))}{"☆".repeat(5 - Math.floor(r))}</span>
+                    <span className="text-punk-400">{"★".repeat(Math.floor(r))}{"☆".repeat(5 - Math.floor(r))}</span>
                     <span>{r === 0 ? "Todas" : `${r}+`}</span>
                   </button>
                 ))}
@@ -260,13 +260,13 @@ function CatalogContent() {
               <div className="flex items-center gap-1 glass rounded-lg p-1">
                 <button
                   onClick={() => setView("grid")}
-                  className={`p-1.5 rounded transition-all ${view === "grid" ? "bg-neon-purple text-white" : "text-gray-500 hover:text-gray-300"}`}
+                  className={`p-1.5 rounded transition-all ${view === "grid" ? "bg-punk-600 text-punk-100" : "text-gray-500 hover:text-gray-300"}`}
                 >
                   <Grid3X3 className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setView("list")}
-                  className={`p-1.5 rounded transition-all ${view === "list" ? "bg-neon-purple text-white" : "text-gray-500 hover:text-gray-300"}`}
+                  className={`p-1.5 rounded transition-all ${view === "list" ? "bg-punk-600 text-punk-100" : "text-gray-500 hover:text-gray-300"}`}
                 >
                   <List className="w-4 h-4" />
                 </button>
@@ -289,9 +289,9 @@ function CatalogContent() {
               {minRating > 0 && (
                 <button
                   onClick={() => setMinRating(0)}
-                  className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/40"
+                  className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-punk-700 text-punk-300 border border-punk-600"
                 >
-                  ★ {minRating}+ <X className="w-3 h-3" />
+                  {minRating}+ <X className="w-3 h-3" />
                 </button>
               )}
               {inStockOnly && (

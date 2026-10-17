@@ -158,7 +158,7 @@ export function Navbar() {
           >
             <ShoppingCart className="w-5 h-5" />
             {count > 0 && (
-              <span className="absolute -top-1 -right-1 w-5 h-5 bg-neon-purple text-white text-xs font-bold rounded-full flex items-center justify-center shadow-neon-purple animate-in">
+              <span className="absolute -top-1 -right-1 w-5 h-5 bg-punk-500 text-punk-50 text-xs font-medium rounded-full flex items-center justify-center">
                 {count > 99 ? "99+" : count}
               </span>
             )}

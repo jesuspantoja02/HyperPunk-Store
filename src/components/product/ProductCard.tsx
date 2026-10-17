@@ -53,7 +53,7 @@ export function ProductCard({ product, view = "grid" }: Props) {
             </div>
           </div>
           <div className="flex items-center gap-2 mt-2">
-            <div className="flex text-yellow-400 text-xs">{"★".repeat(Math.round(product.rating))}</div>
+            <div className="flex text-punk-400 text-xs">{"★".repeat(Math.round(product.rating))}</div>
             <span className="text-xs text-gray-500">({product.reviewCount})</span>
             {product.stock < 5 && product.stock > 0 && (
               <span className="text-xs text-orange-400 ml-2">Solo {product.stock} disponibles</span>
@@ -115,7 +115,7 @@ export function ProductCard({ product, view = "grid" }: Props) {
 
         {/* Rating */}
         <div className="flex items-center gap-1.5 mb-3">
-          <div className="flex text-yellow-400 text-xs">
+          <div className="flex text-punk-400 text-xs">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star key={i} className={`w-3 h-3 ${i < Math.round(product.rating) ? "fill-current" : "fill-none"}`} />
             ))}

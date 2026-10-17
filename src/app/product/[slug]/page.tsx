@@ -86,7 +86,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className={`w-5 h-5 ${i < Math.round(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-700"}`} />
+                <Star key={i} className={`w-5 h-5 ${i < Math.round(product.rating) ? "fill-punk-400 text-punk-400" : "text-gray-700"}`} />
               ))}
             </div>
             <span className="text-sm text-gray-400">{product.rating} ({product.reviewCount} reseñas)</span>
@@ -104,8 +104,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               )}
             </div>
             {discount > 0 && (
-              <p className="text-sm text-neon-green">
-                💰 Ahorras {formatPrice(product.comparePrice! - product.price)} ({discount}% OFF)
+              <p className="text-sm text-punk-400">
+                Ahorras {formatPrice(product.comparePrice! - product.price)} ({discount}% OFF)
               </p>
             )}
             <p className="text-xs text-gray-600 mt-2">Precio incluye IGV · Hasta 12 cuotas sin intereses</p>
@@ -156,7 +156,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             onClick={() => { addItem(product, qty); }}
             className="btn-cyan w-full py-4 text-base text-center font-bold flex items-center justify-center gap-2 block"
           >
-            ⚡ Comprar ahora
+            Comprar ahora
           </Link>
 
           {/* Trust icons */}
@@ -226,7 +226,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 <p className="text-5xl font-display font-bold text-neon-cyan">{product.rating}</p>
                 <div className="flex justify-center my-1">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className={`w-4 h-4 ${i < Math.round(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-700"}`} />
+                    <Star key={i} className={`w-4 h-4 ${i < Math.round(product.rating) ? "fill-punk-400 text-punk-400" : "text-gray-700"}`} />
                   ))}
                 </div>
                 <p className="text-xs text-gray-500">{product.reviewCount} reseñas</p>
@@ -235,10 +235,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 {[5, 4, 3, 2, 1].map(n => (
                   <div key={n} className="flex items-center gap-2 text-xs mb-1">
                     <span className="text-gray-500 w-4">{n}</span>
-                    <Star className="w-3 h-3 fill-yellow-400 text-yellow-400 shrink-0" />
+                    <Star className="w-3 h-3 fill-punk-400 text-punk-400 shrink-0" />
                     <div className="flex-1 bg-punk-800 rounded-full h-1.5">
                       <div
-                        className="bg-yellow-400 h-1.5 rounded-full"
+                        className="bg-punk-400 h-1.5 rounded-full"
                         style={{ width: `${n === 5 ? 65 : n === 4 ? 25 : n === 3 ? 7 : n === 2 ? 2 : 1}%` }}
                       />
                     </div>
@@ -254,7 +254,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                     <p className="font-medium text-gray-200">{review.user}</p>
                     <div className="flex items-center gap-1 mt-0.5">
                       {Array.from({ length: 5 }).map((_, j) => (
-                        <Star key={j} className={`w-3 h-3 ${j < review.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-700"}`} />
+                        <Star key={j} className={`w-3 h-3 ${j < review.rating ? "fill-punk-400 text-punk-400" : "text-gray-700"}`} />
                       ))}
                     </div>
                   </div>
